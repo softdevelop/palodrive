@@ -10,7 +10,6 @@
 	<div style="clear:both;"></div>
 	<button id="next_btn" type="button" class="next" onclick="javascript:checkAvailability();" style="background-position: 175px 8px;width: 210px;text-align: left;">Check availability</button>
 </form>
-</div>
 <script>
 	function checkAvailability(){
 		var postData = {
