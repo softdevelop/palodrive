@@ -98,7 +98,11 @@ class SignUpsController extends AppController {
 					$this->{$this->step}();
 					$this->render('setup17');
 					break;
-
+				case '18':
+					$this->step = 'setup18';
+					$this->{$this->step}();
+					$this->render('setup17');
+					break;
 				default:
 					# code...
 					break;

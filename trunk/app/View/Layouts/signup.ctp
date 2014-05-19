@@ -38,7 +38,24 @@
 		  <li><a href="#">3. Confirmation</a></li>
 		  <li><a href="#">4. Finish</a></li>
 		</ul>
-		<?php echo $content_for_layout;  ?>	
+		<div class="content">
+			<div class="cleft">
+				<?php echo $content_for_layout;  ?>	
+			</div>
+			<div class="cright">
+			 	<img src="img/icon_des.png"/><h3 class="title">Descriptions</h3>
+			    <div class="gray_panel">
+					<p>
+					    The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.
+					<br/><br/>
+					    The most versatile organization where there is the option to add
+					</p>
+					<div class="but">
+					
+					</div>
+				</div>	
+			</div>
+		</div>
 	</div>
 </div>
 <div id="footer">

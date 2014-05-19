@@ -1,5 +1,5 @@
 <form method="POST" action="">
-	<input type="hidden" name="data[step]" id="step_num" value="setup_client_players_review">
+	<input type="hidden" name="step" id="step_num" value="18">
 	<table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
 		<tbody>
 			<tr>
