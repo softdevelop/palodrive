@@ -4,174 +4,175 @@
 <!-- Mirrored from m.palodrive.co/perhead/signup by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 15 May 2014 01:54:45 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>No Per Head Fee</title>
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/ui/1.10.4/jquery-ui.js"></script>
-<script type="text/javascript" src="js/jquery.treegrid.js"></script><link rel="stylesheet" type="text/css" href="css/style.css" /></head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>No Per Head Fee</title>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/ui/1.10.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/jquery.treegrid.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 
 <body>
-<div id="header">
-	<div class="mheader">
-	<div class="logo"><img src="img/logo.png"></div>
-	 <div class="call">Call us at <a href="skype:Nick_skype?call"><img align="absmiddle" src="img/skype.png"></a> 1.877.456.4344</div>
-	  <ul class="menu">
-	      <li style="border:none"><a href="#">HOME</a></li>
-	      <li><a href="#">ABOUT US</a></li>
-	      <li><a href="#">SIGN IN</a></li>
-	      <li><a href="#">SIGN UP</a></li>
-	      <li><a href="#">CONTACT US</a></li>
-	  </ul>
-    </div>
-</div>
+	<div id="header">
+		<div class="mheader">
+		<div class="logo"><img src="img/logo.png"></div>
+		 <div class="call">Call us at <a href="skype:Nick_skype?call"><img align="absmiddle" src="img/skype.png"></a> 1.877.456.4344</div>
+		  <ul class="menu">
+		      <li style="border:none"><a href="#">HOME</a></li>
+		      <li><a href="#">ABOUT US</a></li>
+		      <li><a href="#">SIGN IN</a></li>
+		      <li><a href="#">SIGN UP</a></li>
+		      <li><a href="#">CONTACT US</a></li>
+		  </ul>
+	    </div>
+	</div>
 <div id="body">
 	<div class="mbody">
-	<ul class="procbar">
-  <li><a  class="active" href="#">1. Setup master</a></li>
-  <li><a href="#">2. Setup Client</a></li>
-  <li><a href="#">3. Confirmation</a></li>
-  <li><a href="#">4. Finish</a></li>
-</ul>
-<div class="content">
-<h2>Choose Username, Login, Handle</h2>
-<div class="cleft">
-	<form method="POST" id="register_form" action="http://m.palodrive.co/perhead/signup">
-	<p>You will be able to modify your account name and password after the account is set-up</p>
-	<div class="info">
-	    <div class="input" style="background-image:url(img/Name.png);"><input type="text" id="usename" placeholder="Usename" name="data[User][login]" value=""></div>
-	    <div class="input" style="background-image:url(img/Pass.png);"><input type="password" required="" id="password" placeholder="Password" name="data[User][pwd]" value=""></div>
-	    <div class="input" style="background-image:url(img/Handle.png);"><input type="text" required="" id="handle_name" placeholder="Handle name" name="data[User][handle_name]" value=""></div>
-	</div>
-	<div style="clear:both;"></div>
-	<!--
-	<p>Which best describers your organization ?</p>
-	<p><input class="radio" type="radio" name="data[des_type]" value="1"/> <span style="vertical-align:5px; margin-left:10px;">Master with players only</span></p>
-	<p><input class="text" type="text" id="agent_count" placeholder="Number of agents" name="data[player_count]" value=""></p>
-	<p>Single level organization where there are no agents. You will have the option to add agents later.</p>
-	<p><input class="radio" type="radio" name="data[des_type]" value="2" checked/> <span style="vertical-align:5px; margin-left:10px;">Master with agents and players</span></p>
-	<p><input class="text" type="text" id="agent_count" placeholder="Number of agents" name="data[agent_count]" value=""></p>
-	<p>The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.</p>
-	-->
-	<button id="next_btn" type="button" class="next" onclick="javascript:checkAvailability();" style="background-position: 175px 8px;width: 210px;text-align: left;">Check availability</button>
-    </form>
-</div>
-<div class="cright">
-    <img src="img/icon_des.png"/><h3 class="title">Descriptions</h3>
-    <div class="gray_panel">
-	<p>
-	    The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.
-	<br/><br/>
-	    The most versatile organization where there is the option to add
-	</p>
-	<div class="but">
-	</div>
-    </div>
- </div>
-</div>
-<script>
-	function checkAvailability(){
-		var postData = {
-			'data[User][login]':$("#usename").val(),
-			'data[User][handle_name]':$("#handle_name").val(),
-			'data[User][pwd]':$("#password").val()
-		};
-		$.ajax({ // create an AJAX call...
-			type: 'POST', // GET or POST
-			data: postData,
-			url: 'users/check_availability', // the file to call
-			beforeSend: function(){
-			},
-			success: function(response) { // on success..
-				$('#register_form').html(response); // update the DIV - should I use the DIV id?
+		<ul class="procbar">
+		  <li><a  class="active" href="#">1. Setup master</a></li>
+		  <li><a href="#">2. Setup Client</a></li>
+		  <li><a href="#">3. Confirmation</a></li>
+		  <li><a href="#">4. Finish</a></li>
+		</ul>
+		<div class="content">
+			<h2>Choose Username, Login, Handle</h2>
+			<div class="cleft">
+				<form method="POST" id="register_form" action="http://m.palodrive.co/perhead/signup">
+					<p>You will be able to modify your account name and password after the account is set-up</p>
+					<div class="info">
+					    <div class="input" style="background-image:url(img/Name.png);"><input type="text" id="usename" placeholder="Usename" name="data[User][login]" value=""></div>
+					    <div class="input" style="background-image:url(img/Pass.png);"><input type="password" required="" id="password" placeholder="Password" name="data[User][pwd]" value=""></div>
+					    <div class="input" style="background-image:url(img/Handle.png);"><input type="text" required="" id="handle_name" placeholder="Handle name" name="data[User][handle_name]" value=""></div>
+					</div>
+					<div style="clear:both;"></div>
+					<!--
+					<p>Which best describers your organization ?</p>
+					<p><input class="radio" type="radio" name="data[des_type]" value="1"/> <span style="vertical-align:5px; margin-left:10px;">Master with players only</span></p>
+					<p><input class="text" type="text" id="agent_count" placeholder="Number of agents" name="data[player_count]" value=""></p>
+					<p>Single level organization where there are no agents. You will have the option to add agents later.</p>
+					<p><input class="radio" type="radio" name="data[des_type]" value="2" checked/> <span style="vertical-align:5px; margin-left:10px;">Master with agents and players</span></p>
+					<p><input class="text" type="text" id="agent_count" placeholder="Number of agents" name="data[agent_count]" value=""></p>
+					<p>The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.</p>
+					-->
+					<button id="next_btn" type="button" class="next" onclick="javascript:checkAvailability();" style="background-position: 175px 8px;width: 210px;text-align: left;">Check availability</button>
+			    </form>
+			</div>
+			<div class="cright">
+			    <img src="img/icon_des.png"/><h3 class="title">Descriptions</h3>
+			    <div class="gray_panel">
+				<p>
+				    The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.
+				<br/><br/>
+				    The most versatile organization where there is the option to add
+				</p>
+				<div class="but">
+				</div>
+			    </div>
+			 </div>
+		</div>
+		<script>
+			function checkAvailability(){
+				var postData = {
+					'data[User][login]':$("#usename").val(),
+					'data[User][handle_name]':$("#handle_name").val(),
+					'data[User][pwd]':$("#password").val()
+				};
+				$.ajax({ // create an AJAX call...
+					type: 'POST', // GET or POST
+					data: postData,
+					url: 'users/check_availability', // the file to call
+					beforeSend: function(){
+					},
+					success: function(response) { // on success..
+						$('#register_form').html(response); // update the DIV - should I use the DIV id?
+					}
+				});
 			}
-		});
-	}
-</script>	</div>
+		</script>	
+	</div>
 </div>
 <div id="footer">
-<div class="mfooter">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tbody>
-		<tr>
-		<td valign="top">
-			<div style="width:270px;">
-			<div style="color:#fff; font-weight:bold;"> Bookie Tips</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
-	    <div style="clear:both"></div>
-	    Although you are using Price per Head Services to run your bookie operation prop...
-			</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
-	    <div style="clear:both"></div>
-	    Although you are using Price per Head Services to run your bookie operation prop...
-			</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
-	    <div style="clear:both"></div>
-	    Although you are using Price per Head Services to run your bookie operation prop...
-			</div>
-		    </div>
-			</td>
-		<td valign="top">
-			<div style="width:270px;">
-			<div style="color:#fff; font-weight:bold;">Popular Post</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+	<div class="mfooter">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tbody>
+				<tr>
+				<td valign="top">
+					<div style="width:270px;">
+					<div style="color:#fff; font-weight:bold;"> Bookie Tips</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
 			    <div style="clear:both"></div>
 			    Although you are using Price per Head Services to run your bookie operation prop...
-			</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+					</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
 			    <div style="clear:both"></div>
 			    Although you are using Price per Head Services to run your bookie operation prop...
-			</div>
-			<div style="padding-top:15px;">
-			    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+					</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
 			    <div style="clear:both"></div>
 			    Although you are using Price per Head Services to run your bookie operation prop...
-			    </div>
-			</div>
-			</td>
-		<td valign="top">
-		    <div style="width:242px;">
-			<div style="color:#fff; font-weight:bold;">Contact us</div>
-			<div style="padding-top:20px;"><strong>Price Per Head</strong><br>
-			    Price Per Head is the Leading Pay Per Head Bookmaking and Sportsbook Software Services<br>
-			    (1)888-774-7467<br>
-			    (1)888-PPH-SHOP<br>
-			    info@priceperhead.com<br>
-			    http://www.priceperhead.com<br>
-			</div>
-		    </div>
-			</td>
-		</tr>
-	</tbody>
-    </table>
-</div>
+					</div>
+				    </div>
+					</td>
+				<td valign="top">
+					<div style="width:270px;">
+					<div style="color:#fff; font-weight:bold;">Popular Post</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+					    <div style="clear:both"></div>
+					    Although you are using Price per Head Services to run your bookie operation prop...
+					</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+					    <div style="clear:both"></div>
+					    Although you are using Price per Head Services to run your bookie operation prop...
+					</div>
+					<div style="padding-top:15px;">
+					    <img align="left" style="padding-right:7px;" src="img/h3.png"><strong>Price per Head Services Business Tips: Working with To-Do Lists</strong>
+					    <div style="clear:both"></div>
+					    Although you are using Price per Head Services to run your bookie operation prop...
+					    </div>
+					</div>
+					</td>
+				<td valign="top">
+				    <div style="width:242px;">
+					<div style="color:#fff; font-weight:bold;">Contact us</div>
+					<div style="padding-top:20px;"><strong>Price Per Head</strong><br>
+					    Price Per Head is the Leading Pay Per Head Bookmaking and Sportsbook Software Services<br>
+					    (1)888-774-7467<br>
+					    (1)888-PPH-SHOP<br>
+					    info@priceperhead.com<br>
+					    http://www.priceperhead.com<br>
+					</div>
+				    </div>
+					</td>
+				</tr>
+			</tbody>
+    	</table>
+	</div>
 </div>
 <div class="copyright">
-<div style="color:#297b8d;">Copyright 2014, Real Price Per Head</div>
-<ul class="fmenu">
-	<li style="border:none;"><a href="#">Horses &amp; Casino</a></li>
-    <li><a href="#">Agents options &amp; Software</a></li>
-    <li><a href="#">FAQ</a></li>
-    <li><a href="#">Rules &amp; Regulations</a></li>
-    <li><a href="#">Privacy <img src="img/tt.png"></a></li>
-</ul>
-</div>
-<script language="javascript">
-jQuery(document).ready(function($) {
-	$('input,textarea').focus(function(){
-	   $(this).data('placeholder',$(this).attr('placeholder'))
-	   $(this).attr('placeholder','');
+	<div style="color:#297b8d;">Copyright 2014, Real Price Per Head</div>
+		<ul class="fmenu">
+			<li style="border:none;"><a href="#">Horses &amp; Casino</a></li>
+		    <li><a href="#">Agents options &amp; Software</a></li>
+		    <li><a href="#">FAQ</a></li>
+		    <li><a href="#">Rules &amp; Regulations</a></li>
+		    <li><a href="#">Privacy <img src="img/tt.png"></a></li>
+		</ul>
+	</div>
+	<script language="javascript">
+	jQuery(document).ready(function($) {
+		$('input,textarea').focus(function(){
+		   $(this).data('placeholder',$(this).attr('placeholder'))
+		   $(this).attr('placeholder','');
+		});
+		$('input,textarea').blur(function(){
+		   $(this).attr('placeholder',$(this).data('placeholder'));
+		});	
 	});
-	$('input,textarea').blur(function(){
-	   $(this).attr('placeholder',$(this).data('placeholder'));
-	});	
-});
-</script>
+	</script>
 </body>
-
-<!-- Mirrored from m.palodrive.co/perhead/signup by HTTrack Website Copier/3.x [XR&CO'2013], Thu, 15 May 2014 01:55:02 GMT -->
 </html>

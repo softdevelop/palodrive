@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+	<user>
+			<master>
+				<user_name>aaaaa</user_name>
+				<password>aaad</password>
+				<handlename>asd</handlename>
+			<abc>1111</abc><abc>1111</abc></master>
+	</user>
+	<user>
+		<master>
+			<user_name>bbbbbb</user_name>
+			<password>bbb</password>
+			<handlename>bbb</handlename>
+		<abc>1111</abc><abc>1111</abc></master>
+	</user>
+</users>
