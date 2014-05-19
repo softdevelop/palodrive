@@ -347,3 +347,66 @@ input[type="text"].default {
     text-align: center;
     width: 70px !important;
 }
+/*Anh Nguyen HD developer*/
+.phan_tab, .wager_type_tab, .player_limit_tab, .agent_properties_tab
+{
+	height: 33px;
+	left: 0px;
+	top: 0px;
+}
+.item_tab, .wager_type_item_tab, .player_limit_item_tab, .agent_properties_item_tab
+{
+	background-color: #e8e8e8;
+	border: 1px solid #e0e0e0;
+	border-right: none;
+	color: #aeaeae;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-decoration: none;
+	transition: all 200ms ease-in-out;
+	-webkit-transition: all 200ms ease-in-out;
+
+}
+.phan_tab span:first-child
+{
+	border-left: 1px solid #e0e0e0;
+}
+.tab_cuoi
+{
+	border-right: 1px solid #e0e0e0;
+}
+.khung_view, .wager_type_tabs, .player_limit_tabs, .agent_properties_tabs
+{
+	border: 1px solid #e0e0e0;
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.03);
+	webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.03);
+}
+.atvi
+{
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	color: #0085bb;
+	margin-bottom: -2px;
+}
+.khung_t
+{
+	display: none;
+	min-height: 200px;
+	overflow: hidden;
+	padding: 10px;
+	text-align: justify;
+}
+.player_limit td
+{
+	border: 1px solid #A9A9A9;
+	border-collapse: collapse;
+}
