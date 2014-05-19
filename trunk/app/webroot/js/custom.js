@@ -1,4 +1,21 @@
-$(document).ready(function(){
+var clocks = new Array();
+	clocks[0] = "15 Min";
+	clocks[1] = "30 Min";
+	clocks[2] = "45 Min";
+	clocks[3] = "1 hr";
+	clocks[4] = "1:15";
+	clocks[5] = "1:30";
+	clocks[6] = "1:45";
+	clocks[7] = "2 hr";
+
+jQuery(document).ready(function($) {
+	$('input,textarea').focus(function(){
+	   $(this).data('placeholder',$(this).attr('placeholder'))
+	   $(this).attr('placeholder','');
+	});
+	$('input,textarea').blur(function(){
+	   $(this).attr('placeholder',$(this).data('placeholder'));
+	});	
 
 		$(".item_tab").click(
 		  function () {
@@ -53,24 +70,12 @@ $(document).ready(function(){
 		  }
 		 
 		);
-});	
-
-
-var clocks = new Array();
-	clocks[0] = "15 Min";
-	clocks[1] = "30 Min";
-	clocks[2] = "45 Min";
-	clocks[3] = "1 hr";
-	clocks[4] = "1:15";
-	clocks[5] = "1:30";
-	clocks[6] = "1:45";
-	clocks[7] = "2 hr";
-jQuery(document).ready(function($) {
-	showBox();
+		showBox();
 	$('input[type=checkbox]').click(function(){
 		showBox();
 	});	
-});
+});	
+
 function CheckAll(Element, Name)
 {
 	el = Element.parentNode.parentNode.parentNode.getElementsByTagName('input');
@@ -106,19 +111,19 @@ function CheckAllSport(Element)
 			if(el[i].checked){
 				$("#"+mr_id).show();
 				$("#"+mw_id).show();
-				$("#"+mr_id+"_KJHKJHSD").show();
-				$("#"+mw_id+"_KJHKJHSD").show();
-				$("#"+mr_id+"_KJHKJHSD").show();
-				$("#"+mw_id+"_KJHKJHSD").show();
-								$("#"+mr_id+"_KJHKJHSD-A1").show();
-				$("#"+mw_id+"_KJHKJHSD-A1").show();
+				$("#"+mr_id+"_SADSD").show();
+				$("#"+mw_id+"_SADSD").show();
+				$("#"+mr_id+"_SADSD").show();
+				$("#"+mw_id+"_SADSD").show();
+								$("#"+mr_id+"_SADSD-A1").show();
+				$("#"+mw_id+"_SADSD-A1").show();
 							}else{
 				$("#"+mr_id).hide();
 				$("#"+mw_id).hide();
-				$("#"+mr_id+"_KJHKJHSD").hide();
-				$("#"+mw_id+"_KJHKJHSD").hide();
-								$("#"+mr_id+"_KJHKJHSD-A1").hide();
-				$("#"+mw_id+"_KJHKJHSD-A1").hide();
+				$("#"+mr_id+"_SADSD").hide();
+				$("#"+mw_id+"_SADSD").hide();
+								$("#"+mr_id+"_SADSD-A1").hide();
+				$("#"+mw_id+"_SADSD-A1").hide();
 							}
 		}
 	}
@@ -243,7 +248,6 @@ function CheckAllSport(Element)
 	}
 	
  }
-
  function checkAgentProperties(obj){
 	var obj_id = obj.id;
 	if(obj.checked)
@@ -343,12 +347,3 @@ function CheckAllSport(Element)
 		$("#agent_properties_pri").show();
 	}
  }
- jQuery(document).ready(function($) {
-	$('input,textarea').focus(function(){
-	   $(this).data('placeholder',$(this).attr('placeholder'))
-	   $(this).attr('placeholder','');
-	});
-	$('input,textarea').blur(function(){
-	   $(this).attr('placeholder',$(this).data('placeholder'));
-	});	
-});
