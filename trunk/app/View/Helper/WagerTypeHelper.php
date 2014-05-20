@@ -34,6 +34,8 @@ class WagerTypeHelper extends AppHelper {
 
 	public function getTourName( $id = null )
 	{
-		var_dump($this->Tournament);die('123');
+		// $tour = new Tournament;
+		// $tour = $tour->find('all');
+		// var_dump($tour);die('123');
 	}
 }

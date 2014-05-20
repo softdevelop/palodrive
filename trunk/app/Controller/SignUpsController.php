@@ -36,6 +36,7 @@ class SignUpsController extends AppController {
  */
 
 	public $components = array('XmlFunctions', 'Session');
+
 /**
  * This controller does not use a model
  *
