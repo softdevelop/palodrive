@@ -244,6 +244,9 @@ class SignUpsController extends AppController {
 	public function setup24()
 	{
 		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
+		// echo "<pre>";
+		// print_r($this->TournamentsDefaultDetail->getAllTour());die('123');
+		// echo "</pre>";
 	}
 
 	/**

@@ -29,7 +29,14 @@ class TournamentsDefaultDetail extends AppModel {
 	/**
 	 * Relationships
 	 */
-	public $hasOne = 'Tournament';
+	public $hasOne = array(
+		'Tournament' => array(
+				'className' => 'Tournament'
+			),
+		'WagerType' => array(
+				'className' => 'WagerType'
+			)
+		);
 
 	/**
 	 * Displayfield
@@ -49,8 +56,7 @@ class TournamentsDefaultDetail extends AppModel {
 
 	public function getAllTour()
 	{
-		$all = $this->Tournament->getAll();
-
+		return $this->Tournament->getAll();
 	}
 	
 }

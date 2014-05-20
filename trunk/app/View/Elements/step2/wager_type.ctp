@@ -6,6 +6,7 @@
                 </select>
             </p>
             <div style="overflow:scroll;height:600px;" id="wager_type_all">
+                <?php var_dump($this->WagerType->getTourName());?>
                 <p>
                     SportBook Default:&nbsp;
                     <select name="data[sportbook][default]" onchange="selectDefaultSportbook(this.selectedIndex);" id="sportbookDefault">
