@@ -41,7 +41,7 @@ class SignUpsController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Users');
+	public $uses = array('TournamentsDefaultDetail');
 
 	public $step;
 /**
@@ -231,7 +231,7 @@ class SignUpsController extends AppController {
 
 	public function setup18()
 	{
-		
+		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
 	}
 
 	/**
