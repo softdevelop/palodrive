@@ -44,6 +44,8 @@ class SignUpsController extends AppController {
 	public $uses = array('TournamentsDefaultDetail');
 
 	public $step;
+
+	public $active;
 /**
  * Displays a view
  *
@@ -56,17 +58,27 @@ class SignUpsController extends AppController {
 	public function index() 
 	{
 		$this->layout = 'signup';
-		$this->set('active', 1);
+		if(!$this->Session->check('step.active'))
+		{
+			$this->Session->write('step.active', 1);
+			$this->set('active', 1);
+		}
+		else
+		{
+			$this->set('active', $this->Session->read('step.active'));
+		}
+			
 		if(!isset($_POST['step']))
 		{
 			// When user reload page signup we will remove all first session and entry info from scratch
 			$this->Session->delete('users');
+			$this->Session->delete('step.active');
 		}
 		else
 		{
 			switch ($_POST['step']) {
 				case '12':
-					
+					$this->Session->write('step.active', 1);
 					$this->step = 'setup12';
 					$this->render('setup12');
 					break;
@@ -77,31 +89,31 @@ class SignUpsController extends AppController {
 					break;
 				case '14':
 					$this->step = 'setup14';
-					$this->set('active', 2);
+					$this->Session->write('step.active', 2);
 					$this->render('setup14');
 					break;
 
-				case '15':
-					$this->step = 'setup15';
+				case '21':
+					$this->step = 'setup21';
 					$this->{$this->step}();
-					$this->render('setup15');
+					$this->render('setup21');
 					break;
 
-				case '16':
-					$this->step = 'setup16';
+				case '22':
+					$this->step = 'setup22';
 					$this->{$this->step}();
-					$this->render('setup16');
+					$this->render('setup22');
 					break;
 
-				case '17':
-					$this->step = 'setup17';
+				case '23':
+					$this->step = 'setup23';
 					$this->{$this->step}();
-					$this->render('setup17');
+					$this->render('setup23');
 					break;
-				case '18':
-					$this->step = 'setup18';
+				case '24':
+					$this->step = 'setup24';
 					$this->{$this->step}();
-					$this->render('setup18');
+					$this->render('setup24');
 					break;
 				default:
 					# code...
@@ -169,7 +181,7 @@ class SignUpsController extends AppController {
 	 * create sub agents if there are agents or create players if there are not agents
 	 * @return avoid
 	 */
-	public function setup15()
+	public function setup21()
 	{
 		if(!empty($_POST['data']['player_count']))
 		{
@@ -191,7 +203,7 @@ class SignUpsController extends AppController {
 	 * entry players of each agent, sub agent and master 
 	 * @return avoid
 	 */
-	public function setup16()
+	public function setup22()
 	{
 
 	}
@@ -200,7 +212,7 @@ class SignUpsController extends AppController {
 	/**
 	 * create player users of sub agents, agents, master
 	 */
-	public function setup17()
+	public function setup23()
 	{
 		// create player for master
 		if(!empty($_POST['data']['player_count']))
@@ -229,7 +241,7 @@ class SignUpsController extends AppController {
 		}
 	}
 
-	public function setup18()
+	public function setup24()
 	{
 		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
 	}

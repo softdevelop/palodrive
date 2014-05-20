@@ -1,5 +1,5 @@
 <form method="POST" action="/signups">
-	<input type="hidden" name="step" id="step_num" value="17">
+	<input type="hidden" name="step" id="step_num" value="23">
 	<div style="padding-top:10px;"> 
 		Master: <?php echo $this->Session->read('users.master.handle_name');?>, Username: <?php echo $this->Session->read('users.master.user_name');?>, Password: <?php echo $this->Session->read('users.master.password');?>	<br>
 		<input class="text" style="width:140px" type="text" placeholder="Number of players" name="data[player_count]">
