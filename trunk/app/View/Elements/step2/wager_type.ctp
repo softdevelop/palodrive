@@ -18,7 +18,6 @@
                     </select>
                     &nbsp;&nbsp;Select All Sports and Wager Types&nbsp;<input type="checkbox" onclick="CheckAllSport(this);"/>
                 </p>
-                <?php foreach( $tournaments as $tournament) :?>
                 <p>
                     <strong>NFL</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
                     <select name="data[wager_type][nfl][sportbook]" onchange="selectSportBook(this);" id="sportbook_1">
@@ -87,7 +86,658 @@
                         <td align="center" style="color:red;">X</td>
                     </tr>
                 </table>
-                <?php endforeach;?>
+                <p>
+                    <strong>NCAAFB</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][ncaafb][sportbook]" onchange="selectSportBook(this);" id="sportbook_2">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][ncaafb][all]" type="checkbox" onclick="CheckAll(this, '2', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Teaser</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][spread]" id="c_2_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][ml]" id="c_2_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][total]" id="c_2_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][parlay]" id="c_2_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][bet]" id="c_2_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][teaser]" id="c_2_p_Game_w_Teaser"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][future]" id="c_2_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][game][prop]" id="c_2_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][1st_half][spread]" id="c_2_p_1st_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][1st_half][ml]" id="c_2_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][1st_half][total]" id="c_2_p_1st_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][1st_half][parlay]" id="c_2_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][2st_half][spread]" id="c_2_p_2nd_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][2st_half][ml]" id="c_2_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][2st_half][total]" id="c_2_p_2nd_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaafb][2st_half][parlay]" id="c_2_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Quarter</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][2st_half][quarter][spread]" id="c_2_p_Quarter_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][2st_half][quarter][ml]" id="c_2_p_Quarter_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][2st_half][quarter][total]" id="c_2_p_Quarter_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][2st_half][quarter][parlay]" id="c_2_p_Quarter_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>NBA</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][nba][sportbook]" onchange="selectSportBook(this);" id="sportbook_3">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][nba][all]" type="checkbox" onclick="CheckAll(this, '3', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Teaser</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][spread]" id="c_3_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][ml]" id="c_3_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][total]" id="c_3_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][parlay]" id="c_3_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][bet]" id="c_3_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][teaser]" id="c_3_p_Game_w_Teaser"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][future]" id="c_3_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][game][prop]" id="c_3_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][1st_half][spread]" id="c_3_p_1st_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][1st_half][ml]" id="c_3_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][1st_half][total]" id="c_3_p_1st_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][1st_half][parlay]" id="c_3_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][2st_half][spread]" id="c_3_p_2nd_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][2st_half][ml]" id="c_3_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][2st_half][total]" id="c_3_p_2nd_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][2st_half][parlay]" id="c_3_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Quarter</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][quarter][spread]" id="c_3_p_Quarter_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][quarter][ml]" id="c_3_p_Quarter_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][quarter][tl]" id="c_3_p_Quarter_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nba][quarter][parlay]" id="c_3_p_Quarter_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>NCAAM</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][ncaam][sportbook]" onchange="selectSportBook(this);" id="sportbook_4">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][ncaam][all]" type="checkbox" onclick="CheckAll(this, '4', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Teaser</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][spread]" id="c_4_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][ml]" id="c_4_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][total]" id="c_4_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][parlay]" id="c_4_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][bet]" id="c_4_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][teaser]" id="c_4_p_Game_w_Teaser"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][future]" id="c_4_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][game][prop]" id="c_4_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][spread]" id="c_4_p_1st_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][ml]" id="c_4_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][total]" id="c_4_p_1st_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][parlay]" id="c_4_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][spread]" id="c_4_p_2nd_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][ml]" id="c_4_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][total]" id="c_4_p_2nd_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][1st_half][parlay]" id="c_4_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Quarter</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][quarter][spread]" id="c_4_p_Quarter_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][quarter][ml]" id="c_4_p_Quarter_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][quarter][total]" id="c_4_p_Quarter_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaam][quarter][parlay]" id="c_4_p_Quarter_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>WNBA</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][wnba][sportbook]" onchange="selectSportBook(this);" id="sportbook_8">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][wnba][all]" type="checkbox" onclick="CheckAll(this, '8', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Teaser</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][spread]" id="c_8_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][ml]" id="c_8_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][total]" id="c_8_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][parlay]" id="c_8_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][bet]" id="c_8_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][teaser]" id="c_8_p_Game_w_Teaser"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][future]" id="c_8_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][game][prop]" id="c_8_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][1st_half][spread]" id="c_8_p_1st_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][1st_half][ml]" id="c_8_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][1st_half][total]" id="c_8_p_1st_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][1st_half][parlay]" id="c_8_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][2st_half][spread]" id="c_8_p_2nd_Half_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][2st_half][ml]" id="c_8_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][2st_half][total]" id="c_8_p_2nd_Half_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][2st_half][parlay]" id="c_8_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Quarter</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][quarter][spread]" id="c_8_p_Quarter_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][quarter][ml]" id="c_8_p_Quarter_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][quarter][total]" id="c_8_p_Quarter_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][wnba][quarter][parlay]" id="c_8_p_Quarter_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>MLB</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][mlb][sportbook]" onchange="selectSportBook(this);" id="sportbook_5">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][mlb][sportbook][all]" type="checkbox" onclick="CheckAll(this, '5', 0)" /></td>
+                        <td class="header" width="70px;">Run Line</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][rl]" id="c_5_p_Game_w_RL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][ml]" id="c_5_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][total]" id="c_5_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][parlay]" id="c_5_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][bet]" id="c_5_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][future]" id="c_5_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][game][prop]" id="c_5_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st 5 Innings</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][1st_5_innings][rl]" id="c_5_p_1st_5_Innings_w_RL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][1st_5_innings][ml]" id="c_5_p_1st_5_Innings_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][1st_5_innings][total]" id="c_5_p_1st_5_Innings_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][1st_5_innings][parlay]" id="c_5_p_1st_5_Innings_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Last 4 Innings</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][last_4_innings][rl]" id="c_5_p_Last_4_Innings_w_RL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][last_4_innings][ml]" id="c_5_p_Last_4_Innings_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][last_4_innings][total]" id="c_5_p_Last_4_Innings_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mlb][last_4_innings][parlay]" id="c_5_p_Last_4_Innings_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>NHL</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][nhl]" onchange="selectSportBook(this);" id="sportbook_7">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][nhl][all]" type="checkbox" onclick="CheckAll(this, '7', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][spread]" id="c_7_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][ml]" id="c_7_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="ddata[wager_type][nhl][game][tl]" id="c_7_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][parlay]" id="c_7_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][bet]" id="c_7_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][future]" id="c_7_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][game][prop]" id="c_7_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Period</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][1st_period][spread]" id="c_7_p_1st_Period_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][1st_period][ml]" id="c_7_p_1st_Period_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][1st_period][total]" id="c_7_p_1st_Period_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][1st_period][parlay]" id="c_7_p_1st_Period_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Period</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][2st_period][spread]" id="c_7_p_2nd_Period_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][2st_period][ml]" id="c_7_p_2nd_Period_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][2st_period][total]" id="c_7_p_2nd_Period_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][2st_period][parlay]" id="c_7_p_2nd_Period_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">3rd Period</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][3st_period][spread]" id="c_7_p_3rd_Period_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][3st_period][ml]" id="c_7_p_3rd_Period_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][3st_period][total]" id="c_7_p_3rd_Period_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][nhl][3st_period][parlay]" id="c_7_p_3rd_Period_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>All Soccer</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][all_soccer][sportbook]" onchange="selectSportBook(this);" id="sportbook_9">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][all_soccer][all]" type="checkbox" onclick="CheckAll(this, '9', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][game][ml]" id="c_9_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][game][parlay]" id="c_9_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][game][bet]" id="c_9_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][game][future]" id="c_9_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][game][prop]" id="c_9_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][1st_half][ml]" id="c_9_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][1st_half][parlay]" id="c_9_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][2st_half][ml]" id="c_9_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_soccer][2st_half][parlay]" id="c_9_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>NCAABB</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][ncaabb][sportbook]" onchange="selectSportBook(this);" id="sportbook_6">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][ncaabb][all]" type="checkbox" onclick="CheckAll(this, '6', 0)" /></td>
+                        <td class="header" width="70px;">Spread</td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Total</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][spread]" id="c_6_p_Game_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][ml]" id="c_6_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][total]" id="c_6_p_Game_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][parlay]" id="c_6_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][bet]" id="c_6_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][future]" id="c_6_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][game][prop]" id="c_6_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st 5 Innings</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][1st_5_innings][spread]" id="c_6_p_1st_5_Innings_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][1st_5_innings][ml]" id="c_6_p_1st_5_Innings_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][1st_5_innings][total]" id="c_6_p_1st_5_Innings_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][1st_5_innings][parlay]" id="c_6_p_1st_5_Innings_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Last 4 Innings</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][last_4_innings][spread]" id="c_6_p_Last_4_Innings_w_PS"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][last_4_innings][ml]" id="c_6_p_Last_4_Innings_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][last_4_innings][tota]" id="c_6_p_Last_4_Innings_w_TL"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][ncaabb][last_4_innings][parlay]" id="c_6_p_Last_4_Innings_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>MMA / Boxing</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][mma_boxing][sportbook]" onchange="selectSportBook(this);" id="sportbook_10">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][mma_boxing][all]" type="checkbox" onclick="CheckAll(this, '10', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mma_boxing][game][ml]" id="c_10_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mma_boxing][game][parlay]" id="c_10_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mma_boxing][game][bet]" id="c_10_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mma_boxing][game][future]" id="c_10_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][mma_boxing][game][prop]" id="c_10_p_Game_w_prop"/></td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>All Golf</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][all_golf][sportbook]" onchange="selectSportBook(this);" id="sportbook_11">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][all_golf][all]" type="checkbox" onclick="CheckAll(this, '11', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_golf][game][ml]" id="c_11_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_golf][game][future]" id="c_11_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][all_golf][game][prop]" id="c_11_p_Game_w_prop"/></td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>Tennis</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[wager_type][tennis][sportbook]" onchange="selectSportBook(this);" id="sportbook_12">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][tennis][all]" type="checkbox" onclick="CheckAll(this, '12', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][tennis][game][ml]" id="c_12_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][tennis][game][future]" id="c_12_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[wager_type][tennis][game][prop]" id="c_12_p_Game_w_prop"/></td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>Auto Racing</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[sportbook][14]" onchange="selectSportBook(this);" id="sportbook_14">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[c][14][all]" type="checkbox" onclick="CheckAll(this, '14', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][14][p_Game][w_ML]" id="c_14_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][14][p_Game][b_Parlay]" id="c_14_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][14][p_Game][b_If_Bet]" id="c_14_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][14][p_Game][b_Future]" id="c_14_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][14][p_Game][b_prop]" id="c_14_p_Game_w_prop"/></td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>Arena Football</strong>&nbsp;&nbsp;&nbsp;SportBook:&nbsp;
+                    <select name="data[sportbook][13]" onchange="selectSportBook(this);" id="sportbook_13">
+                        <option value=""></option>
+                        <option value="5Dimes">5Dimes</option>
+                        <option value="Pinnacle">Pinnacle</option>
+                        <option value="CRIS">CRIS</option>
+                        <option value="Grande">Grande</option>
+                        <option value="BetUS">BetUS</option>
+                    </select>
+                </p>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+                    <tr>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[c][13][all]" type="checkbox" onclick="CheckAll(this, '13', 0)" /></td>
+                        <td class="header" width="70px;">ML</td>
+                        <td class="header" width="70px;">Parlay</td>
+                        <td class="header" width="70px;">If Bet</td>
+                        <td class="header" width="70px;">Teaser</td>
+                        <td class="header" width="70px;">Future</td>
+                        <td class="header" width="70px;" style="background-color:#dcdcdc;">Prop</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Game</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][w_ML]" id="c_13_p_Game_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][b_Parlay]" id="c_13_p_Game_w_Parlay"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][b_If_Bet]" id="c_13_p_Game_w_If_Bet"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][b_Teaser]" id="c_13_p_Game_w_Teaser"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][b_Future]" id="c_13_p_Game_w_Future"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Game][b_prop]" id="c_13_p_Game_w_prop"/></td>
+                    </tr>
+                    <tr>
+                        <td class="header">1st Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_1st_Half][w_ML]" id="c_13_p_1st_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_1st_Half][b_Parlay]" id="c_13_p_1st_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">2nd Half</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_2nd_Half][w_ML]" id="c_13_p_2nd_Half_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_2nd_Half][b_Parlay]" id="c_13_p_2nd_Half_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                    <tr>
+                        <td class="header">Quarter</td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Quarter][w_ML]" id="c_13_p_Quarter_w_ML"/></td>
+                        <td align="center"><input value="1" type="checkbox" name="data[c][13][p_Quarter][b_Parlay]" id="c_13_p_Quarter_w_Parlay"/></td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                        <td align="center" style="color:red;">X</td>
+                    </tr>
+                </table>
                 <p><strong>Horses</strong></p>
                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
                     <tr>
