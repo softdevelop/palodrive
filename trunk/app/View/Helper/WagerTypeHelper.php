@@ -21,6 +21,7 @@
 
 App::uses('AppHelper', 'View/Helper');
 App::uses('Tournament', 'Model');
+App::uses('WagerType', 'Model');
 
 /**
  * Application helper
@@ -30,12 +31,63 @@ App::uses('Tournament', 'Model');
  *
  * @package       app.View.Helper
  */
-class WagerTypeHelper extends AppHelper {
+class WagerTypeHelper extends AppHelper 
+{
 
-	public function getTourName( $id = null )
+	public function getWagerTypeName( $id = null )
 	{
-		// $tour = new Tournament;
-		// $tour = $tour->find('all');
-		// var_dump($tour);die('123');
+		$wagerType = new WagerType;
+		$wagerTypeNames = $wagerType->find('all');
+
+		if(isset($wagerTypeNames))
+		{
+			foreach ($wagerTypeNames as $key => $wagerTypeName) 
+			{
+				if ($wagerTypeName['WagerType']['id'] == $id)
+					return $wagerTypeName['WagerType']['name'];
+			}
+		}
+
+		return null;
+		
+	}
+
+	public function getWagerTypeAlias( $id = null )
+	{
+		$wagerType = new WagerType;
+		$wagerTypeNames = $wagerType->find('all');
+
+		if(isset($wagerTypeNames))
+		{
+			foreach ($wagerTypeNames as $key => $wagerTypeName) 
+			{
+				if ($wagerTypeName['WagerType']['id'] == $id)
+					return $wagerTypeName['WagerType']['alias'];
+			}
+		}
+
+		return null;
+		
+	}
+
+	public function getHeader($wagerType = array())
+	{
+		$str = '';
+		if(!empty($wagerType))
+		{
+			foreach ($wagerType as $key => $value) 
+			{
+				if ( $key != 'id' && $key != 'tournament_id' && $key != 'wager_type_id' && $value != -1) 
+				{
+					if ($key != 'prop')
+					$str .= '<td class="header" width="70px;">' . ucfirst($key) . ' </td>';
+					else
+						$str .= '<td class="header" width="70px;" style="background-color:#dcdcdc;">' . ucfirst($key) . ' </td>';
+				}
+				
+			}
+			
+		}
+		return $str;
 	}
 }

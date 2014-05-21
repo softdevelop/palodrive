@@ -17,28 +17,16 @@ App::uses('AppModel', 'Model');
  * @subpackage User.Model
  */
 
-class WagerType extends AppModel {
+class HorsesPark extends AppModel {
 
-	/**
-	 * Name
-	 *
-	 * @var string
-	 */
-	public $name = 'WagerType';
+	public function getParks()
+	{
+		return $this->find('all', array(
+					'fields' => array(
+							'id',
+							'name'
+						)
+			));
+	}
 
-	/**
-	 * Displayfield
-	 *
-	 * @var string $displayField
-	 */
-	public $displayField = 'username';
-
-	/**
-	 * Validation parameters
-	 *
-	 * @var array
-	 */
-	
-	public $validate = array();
-	
 }

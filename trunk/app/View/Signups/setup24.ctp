@@ -1,5 +1,5 @@
 <form method="POST" action="">
-    <input type="hidden" name="data[step]" id="step_num" value="setup_properties">
+    <input type="hidden" name="step" id="step_num" value="31">
     <div class="phan_tab">
         <span class="item_tab atvi" rel="1">Wager Type</span>
         <span class="item_tab" rel="2">Wager Limit</span>
