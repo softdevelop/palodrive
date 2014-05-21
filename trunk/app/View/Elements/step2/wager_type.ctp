@@ -37,7 +37,7 @@
                 <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
                    
                     <tr>
-                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="data[wager_type][<?php echo $nameTour;?>][all]" type="checkbox" onclick="CheckAll(this, '1', 0)" /></td>
+                        <td class="header" nowrap>Select All&nbsp;<input value="1" name="" type="checkbox" onclick="CheckAll(this, '1', 0)" /></td>
 
                         <?php 
                             echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
@@ -98,7 +98,7 @@
                         <td class="header"><?php echo $park['HorsesPark']['name']?></td>
                         <td align="center"><input type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][wps]" id="c_1000000_1_wps"></td>
                         <td align="center"><input type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][exa]" id="c_1000000_1_exa"></td>
-                        <td align="center"><input type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][1][tri]" id="c_1000000_1_tri"></td>
+                        <td align="center"><input type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][tri]" id="c_1000000_1_tri"></td>
                         <td align="center"><input type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][sup]" id="c_1000000_1_sup"></td>
                     </tr>
 

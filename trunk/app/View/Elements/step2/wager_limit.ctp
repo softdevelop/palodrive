@@ -2485,7 +2485,7 @@
                             <td class="header" nowrap>Cassia County Fair</td>
                             <td><input placeholder="Limit" class="input" type="text" style="width:50px;" name="data[ir][1000000][194][wps][SADSD]" id="ir_1000000_194_wps_SADSD"></td>
                             <td><input placeholder="Limit" class="input" type="text" style="width:50px;" name="data[ir][1000000][194][exa][SADSD]" id="ir_1000000_194_exa_SADSD"></td>
-                            td><input placeholder="Limit" class="input" type="text" style="width:50px;" name="data[ir][1000000][194][tri][SADSD]" id="ir_1000000_194_tri_SADSD"></td>
+                            <td><input placeholder="Limit" class="input" type="text" style="width:50px;" name="data[ir][1000000][194][tri][SADSD]" id="ir_1000000_194_tri_SADSD"></td>
                             <td><input placeholder="Limit" class="input" type="text" style="width:50px;" name="data[ir][1000000][194][sup][SADSD]" id="ir_1000000_194_sup_SADSD"></td>
                         </tr>
                         <tr>
