@@ -56,6 +56,7 @@ class SignUpsController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	
+	
 	public function index() 
 	{
 		$this->layout = 'signup';
