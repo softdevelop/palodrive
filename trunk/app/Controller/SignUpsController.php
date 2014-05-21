@@ -42,7 +42,10 @@ class SignUpsController extends AppController {
  *
  * @var array
  */
-	public $uses = array('TournamentsDefaultDetail');
+	public $uses = array(
+		'TournamentsDefaultDetail', 
+		'HorsesPark',
+		);
 
 	public $step;
 
@@ -245,11 +248,8 @@ class SignUpsController extends AppController {
 	public function setup24()
 	{
 		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
-		// echo "<pre>";
-		// print_r($this->TournamentsDefaultDetail->getAllTour());die('123');
-		// echo "</pre>";
+		$this->set('horsesparks', $this->HorsesPark->getParks());
 	}
-
 	/**
 	 * create agent users or players users then save to session array..
 	 * @return avoid
