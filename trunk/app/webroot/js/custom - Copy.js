@@ -134,30 +134,56 @@ function CheckAllSport(Element)
 	$("#game_circle_type_"+league).html(option);
 	if(option == "Normal")
 	{
-		$('.gc_ol_' + league).hide();
-		$('.gc_rl_' + league).hide();
-		$('.gc_nm_' + league).show();
-		$('.gc_rc_nm_' + league).show();
-		$('.gc_rc_rl_' + league).hide();
-		$('.gc_rc_ol_' + league).hide();
+		el = document.getElementsByTagName('select');
+		
+		for (i=0; i<el.length; i++)
+		{
+			var obj_id = el[i].id;
+			if(obj_id.indexOf("gc_rc_"+league+"_") == 0 && obj_id.substr(obj_id.length - 3)=="_rc")
+			{
+				$("#"+obj_id+' option').remove();
+				$("#"+obj_id).show();
+				$("#"+obj_id+"_lbl").hide();
+				$("#"+obj_id+' option').remove();
+				$('#'+obj_id).append($("<option></option>")
+					    .text('off'));
+				for (var j=clocks.length-1; j>=0; j--){
+					$('#'+obj_id).append($("<option></option>")
+					    .text(clocks[j]));
+				}
+			}
+		}
 	}
 	if(option == "Open Line")
 	{
-		$('.gc_nm_' + league).hide();
-		$('.gc_rl_' + league).hide();
-		$('.gc_ol_' + league).show();
-		$('.gc_rc_nm_' + league).hide();
-		$('.gc_rc_rl_' + league).hide();
-		$('.gc_rc_ol_' + league).show();
+		el = document.getElementsByTagName('select');
+		for (i=0; i<el.length; i++)
+		{
+			var obj_id = el[i].id;
+			if(obj_id.indexOf("gc_rc_"+league+"_") == 0 && obj_id.substr(obj_id.length - 3)=="_rc")
+			{
+				$("#"+obj_id+' option').remove();
+				for (var j=0; j<clocks.length; j++){
+					$('#'+obj_id).append($("<option></option>")
+					    .text(clocks[j]));
+				}
+				$("#"+obj_id).show();
+				$("#"+obj_id+"_lbl").hide();
+			}
+		}
 	}
-	if(option == "Release Line")
-	{
-		$('.gc_nm_' + league).hide();
-		$('.gc_rl_' + league).show();
-		$('.gc_ol_' + league).hide();
-		$('.gc_rc_nm_' + league).hide();
-		$('.gc_rc_rl_' + league).show();
-		$('.gc_rc_ol_' + league).hide();
+	if(option == "Release Line"){
+		el = document.getElementsByTagName('select');
+		for (i=0; i<el.length; i++)
+		{
+			var obj_id = el[i].id;
+			if(obj_id.indexOf("gc_rc_"+league+"_") == 0 && obj_id.substr(obj_id.length - 3)=="_rc")
+			{
+				$("#"+obj_id+' option').remove();
+				$("#"+obj_id).hide();
+				$("#"+obj_id+"_lbl").show();
+			}
+		}
 	}
 	el = document.getElementsByTagName('span');
 	for (i=0; i<el.length; i++)

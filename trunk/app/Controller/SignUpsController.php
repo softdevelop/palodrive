@@ -45,6 +45,7 @@ class SignUpsController extends AppController {
 	public $uses = array(
 		'TournamentsDefaultDetail', 
 		'HorsesPark',
+		'DefaultGamesCircle'
 		);
 
 	public $step;
@@ -256,6 +257,7 @@ class SignUpsController extends AppController {
 	{
 		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
 		$this->set('horsesparks', $this->HorsesPark->getParks());
+		$this->set('gamescircle', $this->DefaultGamesCircle->getAll());
 	}
 
 	/**
@@ -281,7 +283,6 @@ class SignUpsController extends AppController {
 				}
 			}
 		}
-		var_dump($this->Session->read('wager_type.horses'));die('123');
 	}
 	/**
 	 * create agent users or players users then save to session array..

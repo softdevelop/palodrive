@@ -54,5 +54,16 @@ class Tournament extends AppModel {
 	{
 		return $this->find('all');
 	}
+
+	/**
+	 * Retrieve name of a tournament
+	 */
+	public function getName( $id = null )
+	{
+		$name = $this->findById($id);
+		if(isset($name))
+			return $name['Tournament']['name'];
+		return NULL;
+	}
 	
 }
