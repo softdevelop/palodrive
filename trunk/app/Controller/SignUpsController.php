@@ -45,6 +45,7 @@ class SignUpsController extends AppController {
 	public $uses = array(
 		'TournamentsDefaultDetail', 
 		'HorsesPark',
+		'DefaultGamesCircle'
 		);
 
 	public $step;
@@ -94,8 +95,7 @@ class SignUpsController extends AppController {
 		if(!isset($_POST['step']))
 		{
 			// When user reload page signup we will remove all first session and entry info from scratch
-			$this->Session->delete('users');
-			$this->Session->delete('step.active');
+			$this->Session->destroy();
 		}
 		else
 		{
@@ -138,6 +138,11 @@ class SignUpsController extends AppController {
 					$this->{$this->step}();
 					$this->render('setup24');
 					break;
+				case '31':
+					$this->step = 'setup31';
+					$this->{$this->step}();
+					$this->render('setup31');
+					break;					
 				default:
 					# code...
 					break;
@@ -264,10 +269,39 @@ class SignUpsController extends AppController {
 		}
 	}
 
+	/** 
+	 * show options as wager type, wager limit, game circles,...
+	 */
 	public function setup24()
 	{
 		$this->set('tournaments', $this->TournamentsDefaultDetail->getAllTour());
 		$this->set('horsesparks', $this->HorsesPark->getParks());
+		$this->set('gamescircle', $this->DefaultGamesCircle->getAll());
+	}
+
+	/**
+	 * show some informations that selected in the steps before and then save to session array.
+	 */
+	public function setup31()
+	{
+		// Save wager type informations to session 
+		if (!empty($_POST['data']['wager_type']))
+		{
+			foreach ($_POST['data']['wager_type'] as $tournament_id => $tournament) 
+			{
+				foreach ($tournament as $wager_type_id => $wager_type) 
+				{
+					if(!empty($wager_type))
+					{
+						foreach ($wager_type as $key => $value) 
+						{
+
+							$this->Session->write('wager_type.' . $tournament_id . '.' . $wager_type_id . '.' . $key, $value);
+						}
+					}
+				}
+			}
+		}
 	}
 	/**
 	 * create agent users or players users then save to session array..

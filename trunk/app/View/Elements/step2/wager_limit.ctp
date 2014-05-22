@@ -89,6 +89,7 @@
         <?php endforeach;?>       
             <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
                 <tbody>
+
                     <tr>
                         <td class="header"><strong>Horses</strong></td>
                         <td class="header" width="70px;">Default</td>
