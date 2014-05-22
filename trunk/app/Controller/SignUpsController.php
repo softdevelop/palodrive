@@ -59,6 +59,24 @@ class SignUpsController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	
+	public function test() 
+	{
+		$haha =$this->Session->read('users.agent');
+		echo '<pre>';
+		var_dump($haha);
+		exit;
+		$tournaments = $this->TournamentsDefaultDetail->getAllTour();
+
+		echo '<pre>';
+		var_dump($tournaments);
+		exit;
+
+		foreach( $tournaments as $tournament){
+			echo '<pre>';
+			var_dump($tournament['TournamentsDefaultDetail']);
+		}
+		exit;
+	}
 	
 	public function index() 
 	{

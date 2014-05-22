@@ -63,7 +63,7 @@
                                         {
                             ?>
                                             <td align="center">
-                                                <input value="1" type="checkbox" name="data[wager_type][<?php echo $tournament['Tournament']['id'];?>][<?php echo $wager_type_id;?>][<?php echo $key2;?>]" />
+                                                <input value="1" type="checkbox" id="c_1_<?php echo $key1.'_'.$key2;?>" name="data[wager_type][<?php echo $tournament['Tournament']['id'];?>][<?php echo $wager_type_id;?>][<?php echo $key2;?>]" />
                                             </td> 
                             <?php
 
