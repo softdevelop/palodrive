@@ -60,24 +60,6 @@ class SignUpsController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	
-	public function test() 
-	{
-		$haha =$this->Session->read('users.agent');
-		echo '<pre>';
-		var_dump($haha);
-		exit;
-		$tournaments = $this->TournamentsDefaultDetail->getAllTour();
-
-		echo '<pre>';
-		var_dump($tournaments);
-		exit;
-
-		foreach( $tournaments as $tournament){
-			echo '<pre>';
-			var_dump($tournament['TournamentsDefaultDetail']);
-		}
-		exit;
-	}
 	
 	public function index() 
 	{
@@ -302,6 +284,64 @@ class SignUpsController extends AppController {
 				}
 			}
 		}
+		if (($_POST['data']['select_wager_limit'] == 1)){
+			if (!empty($_POST['data']['wager_limit'])){
+				if (!empty($_POST['data']['wager_limit']['all'])){
+					if (!empty($_POST['data']['wager_limit']['all']['limit'])){
+						foreach ($_POST['data']['wager_limit']['all']['limit'] as $tournament_id => $tournament) {
+							foreach ($tournament as $wager_limit_id => $wager_limit) {
+								if(!empty($wager_limit)){
+									foreach ($wager_limit as $key => $value){
+										$this->Session->write('wager_limit.all.limit.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
+									}
+								}
+							}
+						}
+					}
+					if (!empty($_POST['data']['wager_limit']['all'])){
+						foreach ($_POST['data']['wager_limit']['all']['max-win'] as $tournament_id => $tournament) {
+							foreach ($tournament as $wager_limit_id => $wager_limit) {
+								if(!empty($wager_limit)){
+									foreach ($wager_limit as $key => $value){
+										$this->Session->write('wager_limit.all.max-win.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}elseif(($_POST['data']['select_wager_limit'] == 2)){
+			if (!empty($_POST['data']['wager_limit'])){
+				if (!empty($_POST['data']['wager_limit']['each_agent'])){
+					foreach ($_POST['data']['wager_limit']['each_agent'] as $keyagent => $agent){
+						if (!empty($agent['limit'])){
+							foreach ($agent['limit'] as $tournament_id => $tournament) {
+								foreach ($tournament as $wager_limit_id => $wager_limit) {
+									if(!empty($wager_limit)){
+										foreach ($wager_limit as $key => $value){
+											$this->Session->write('wager_limit.each_agent.'.$keyagent.'.limit.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
+										}
+									}
+								}
+							}
+						}
+						if (!empty($agent['max-win'])){
+							foreach ($agent['max-win'] as $tournament_id => $tournament) {
+								foreach ($tournament as $wager_limit_id => $wager_limit) {
+									if(!empty($wager_limit)){
+										foreach ($wager_limit as $key => $value){
+											$this->Session->write('wager_limit.each_agent.'.$keyagent.'.max-win.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}	
+		}
+		echo 'success';exit;
 	}
 	/**
 	 * create agent users or players users then save to session array..
