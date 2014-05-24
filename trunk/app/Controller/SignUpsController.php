@@ -60,7 +60,13 @@ class SignUpsController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	
-	
+	public function test() {
+		$hourse = $this->HorsesPark->getParks();
+		echo "<pre>";
+		var_dump($hourse);
+		exit();
+	}
+
 	public function index() 
 	{
 		$this->layout = 'signup';
