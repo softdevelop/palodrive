@@ -97,16 +97,16 @@
                     <tr>
                         <td class="header"><?php echo $park['HorsesPark']['name']?></td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][wps]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_wps">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][wps]" id="c_<?php echo $park['HorsesPark']['id'] ;?>_wps">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][exa]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_exa">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][exa]" id="c_<?php echo $park['HorsesPark']['id'] ;?>_exa">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][tri]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_tri">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][tri]" id="c_<?php echo $park['HorsesPark']['id'] ;?>_tri">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][sup]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_sup">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][sup]" id="c_<?php echo $park['HorsesPark']['id'] ;?>_sup">
                         </td>
                     </tr>
 
