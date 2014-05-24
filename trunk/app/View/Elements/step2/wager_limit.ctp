@@ -26,7 +26,7 @@
                     <td class="header"><strong><?php echo $tournament['Tournament']['name']?></strong></td>
                     <td class="header" width="70px;">Default</td>
                     <?php 
-                        echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail']['0']); 
+                        echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
                     ?>
                 </tr>
                 <?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>
@@ -261,8 +261,8 @@
 				<tr>
 					<td class="header"><strong><?php echo $tournament['Tournament']['name']?></strong></td>
 					<td class="header" width="70px;">Default</td>
-					<?php 
-						echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
+					<?php
+						  echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
 					?>
 				</tr>
 				<?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>

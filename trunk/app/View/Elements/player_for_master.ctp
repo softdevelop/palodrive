@@ -1,5 +1,6 @@
 
-<form method="POST" action="">
+<form method="POST" action="/signups">
+	<input name="step" type="hidden" value="24" />
 	<table class="player_limit" border="0" cellpadding="0" cellspacing="1" width="100%">
 		<tbody>
 			<tr>
