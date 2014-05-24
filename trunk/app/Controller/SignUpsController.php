@@ -61,6 +61,13 @@ class SignUpsController extends AppController {
  */
 	
 	public function test() {
+		$tournaments = $this->Session->read('wager_limit.each_agent.TRAN.limit.hourse');
+		echo "<pre>";
+		var_dump($tournaments);
+		exit();
+
+		$this->set('horsesparks', $this->HorsesPark->getParks());
+		$this->set('gamescircle', $this->DefaultGamesCircle->getAll());
 		$hourse = $this->HorsesPark->getParks();
 		echo "<pre>";
 		var_dump($hourse);
@@ -298,10 +305,13 @@ class SignUpsController extends AppController {
 		{
 			$this->Session->write('game_circle', $_POST['data']['game_circle']);
 		}
+		// save games limit informations to session array
 		if (($_POST['data']['select_wager_limit'] == 1)){
+
 			if (!empty($_POST['data']['wager_limit'])){
 				if (!empty($_POST['data']['wager_limit']['all'])){
 					if (!empty($_POST['data']['wager_limit']['all']['limit'])){
+
 						foreach ($_POST['data']['wager_limit']['all']['limit'] as $tournament_id => $tournament) {
 							foreach ($tournament as $wager_limit_id => $wager_limit) {
 								if(!empty($wager_limit)){

@@ -26,7 +26,9 @@
                     <td class="header"><strong><?php echo $tournament['Tournament']['name']?></strong></td>
                     <td class="header" width="70px;">Default</td>
                     <?php 
-                        echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail']['0']); 
+                        if (isset($tournament['TournamentsDefaultDetail'][0])) {
+                            echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]);
+                        }
                     ?>
                 </tr>
                 <?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>
@@ -54,9 +56,8 @@
                                 <?php 
                                         }
 
-                                     }
+                                    }
                                 }
-                            
                             endforeach;
                         ?>
                     </tr>
@@ -91,13 +92,11 @@
                             endforeach;
                         ?>
                     </tr>
-
                 <?php endforeach;?>
             </table>
         <?php endforeach;?>       
             <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
                 <tbody>
-
                     <tr>
                         <td class="header"><strong>Horses</strong></td>
                         <td class="header" width="70px;">Default</td>
@@ -115,16 +114,16 @@
                             <input onchange="javascript:inputPlayerLimitDefault(this, this.value)" onkeyup="javascript:inputPlayerLimitDefault(this, this.value)" placeholder="Limit" class="input" type="text" style="width:50px;">
                         </td>
                         <td>    
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][wps]" id="ir_1000000_1_wps">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $this->Session->read('users.master.handle_name');?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][wps]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_wps_<?php echo $this->Session->read('users.master.handle_name');?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][exa]" id="ir_1000000_1_exa">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $this->Session->read('users.master.handle_name');?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][exa]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_exa_<?php echo $this->Session->read('users.master.handle_name');?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][tri]" id="ir_1000000_1_tri">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $this->Session->read('users.master.handle_name');?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][tri]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_tri_<?php echo $this->Session->read('users.master.handle_name');?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][sup]" id="ir_1000000_1_sup">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $this->Session->read('users.master.handle_name');?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][sup]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_sup_<?php echo $this->Session->read('users.master.handle_name');?>">
                         </td>
                     </tr>
                     <?php 
@@ -133,17 +132,18 @@
                 </tbody>
             </table>   
 		</div>
-        
         <?php
         foreach ($agents as $key => $value) { ?>
-        <div style="overflow:scroll;height:500px;" class="player_limit_tabs player_limit_<?php echo $value['handle_name'];?>">
+        <div style="overflow:scroll;height:500px;display:none;" class="player_limit_tabs player_limit_<?php echo $value['handle_name'];?>">
             <?php foreach( $tournaments as $tournament) :?>
             <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
                 <tr>
                     <td class="header"><strong><?php echo $tournament['Tournament']['name']?></strong></td>
                     <td class="header" width="70px;">Default</td>
                     <?php 
-                        echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
+                        if (isset($tournament['TournamentsDefaultDetail'][0])) {
+                            echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]);
+                        }
                     ?>
                 </tr>
                 <?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>
@@ -232,16 +232,16 @@
                             <input onchange="javascript:inputPlayerLimitDefault(this, this.value)" onkeyup="javascript:inputPlayerLimitDefault(this, this.value)" placeholder="Limit" class="input" type="text" style="width:50px;">
                         </td>
                         <td>    
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][wps]" id="ir_1_1_<?php echo $key; ?>">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $value['handle_name'];?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][wps]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_wps_<?php echo $value['handle_name'];?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][exa]" id="ir_2_1_<?php echo $key; ?>">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $value['handle_name'];?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][exa]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_exa_<?php echo $value['handle_name'];?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][tri]" id="ir_3_1_<?php echo $key; ?>">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $value['handle_name'];?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][tri]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_tri_<?php echo $value['handle_name'];?>">
                         </td>
                         <td>
-                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][sup]" id="ir_4_1_<?php echo $key; ?>">
+                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][each_agent][<?php echo $value['handle_name'];?>][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][sup]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_sup_<?php echo $value['handle_name'];?>">
                         </td>
                     </tr>
                     <?php 
@@ -262,7 +262,9 @@
 					<td class="header"><strong><?php echo $tournament['Tournament']['name']?></strong></td>
 					<td class="header" width="70px;">Default</td>
 					<?php 
-						echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]); 
+                        if (isset($tournament['TournamentsDefaultDetail'][0])) {
+                            echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]);
+                        }
 					?>
 				</tr>
 				<?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>
@@ -350,16 +352,16 @@
                         <input onchange="javascript:inputPlayerLimitDefault(this, this.value)" onkeyup="javascript:inputPlayerLimitDefault(this, this.value)" placeholder="Limit" class="input" type="text" style="width:50px;">
                     </td>
                     <td>    
-                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][wps]" id="ir_1000000_<?php echo $park['HorsesPark']['id'] ;?>_wps">
+                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][all][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][wps]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_wps">
                     </td>
                     <td>
-                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][exa]" id="ir_1000000_<?php echo $park['HorsesPark']['id'] ;?>_exa">
+                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][all][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][exa]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_exa">
                     </td>
                     <td>
-                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][tri]" id="ir_1000000_<?php echo $park['HorsesPark']['id'] ;?>_tri">
+                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][all][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][tri]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_tri">
                     </td>
                     <td>
-                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[ir][1000000][1][sup]" id="ir_1000000_<?php echo $park['HorsesPark']['id'] ;?>_sup">
+                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" placeholder="Limit" class="input" type="text" style="width: 50px; display: none;" name="data[wager_limit][all][limit][hourse][<?php echo $park['HorsesPark']['id'] ;?>][sup]" id="ir_<?php echo $park['HorsesPark']['id'] ;?>_sup">
                     </td>
                 </tr>
                 <?php 
@@ -370,43 +372,33 @@
 	</div>
 </div>
 <script>
-    //$( document ).ready(function() {
-        function showBox(){
+    function showBox(){
         el = document.getElementsByTagName('input');
-        //console.log(el);
-            for (i=0; i<el.length; i++){
-                var obj_id = el[i].id;
-                //console.log(el[i].id);
-                //if(i == 1) console.log(el[i].id);
-                if(obj_id.indexOf("c_") == 0){
-                    var mr_id = obj_id.replace('c_','ir_');
-                    var mw_id = obj_id.replace('c_','iw_');
-                    if(el[i].checked){
-                        
-                        $("#"+mr_id).show();
-                        $("#"+mw_id).show();
-                        $("#"+mr_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").show();
-                        $("#"+mw_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").show();
-                        <?php  foreach ($agents as $key => $value) { ?>
-                            $("#"+mr_id+"<?php echo '_'.$value['handle_name'];?>").show();
-                            $("#"+mw_id+"<?php echo '_'.$value['handle_name'];?>").show();
-                        <?php  } ?>
-                        $("#"+mr_id+"_SADSD").show();
-                        $("#"+mw_id+"_SADSD").show();
-                        $("#"+mr_id+"_SADSD-A1").show();
-                        $("#"+mw_id+"_SADSD-A1").show();
-                    }else{
-                        $("#"+mr_id).hide();
-                        $("#"+mw_id).hide();
-                        $("#"+mr_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").hide();
-                        $("#"+mw_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").hide();
-                        <?php  foreach ($agents as $key => $value) { ?>
-                            $("#"+mr_id+"<?php echo '_'.$value['handle_name'];?>").hide();
-                            $("#"+mw_id+"<?php echo '_'.$value['handle_name'];?>").hide();
-                        <?php  } ?>
-                    }
+        for (i=0; i<el.length; i++){
+            var obj_id = el[i].id;
+            if(obj_id.indexOf("c_") == 0){
+                var mr_id = obj_id.replace('c_','ir_');
+                var mw_id = obj_id.replace('c_','iw_');
+                if(el[i].checked){
+                    $("#"+mr_id).show();
+                    $("#"+mw_id).show();
+                    $("#"+mr_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").show();
+                    $("#"+mw_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").show();
+                    <?php  foreach ($agents as $key => $value) { ?>
+                        $("#"+mr_id+"<?php echo '_'.$value['handle_name'];?>").show();
+                        $("#"+mw_id+"<?php echo '_'.$value['handle_name'];?>").show();
+                    <?php  } ?>
+                }else{
+                    $("#"+mr_id).hide();
+                    $("#"+mw_id).hide();
+                    $("#"+mr_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").hide();
+                    $("#"+mw_id+"<?php echo '_'.$this->Session->read('users.master.handle_name');?>").hide();
+                    <?php  foreach ($agents as $key => $value) { ?>
+                        $("#"+mr_id+"<?php echo '_'.$value['handle_name'];?>").hide();
+                        $("#"+mw_id+"<?php echo '_'.$value['handle_name'];?>").hide();
+                    <?php  } ?>
                 }
             }
         }
-    //});    
+    }
 </script>
