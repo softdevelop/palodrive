@@ -302,6 +302,13 @@ class SignUpsController extends AppController {
 				}
 			}
 		}
+
+		// save games circles informations to session array
+		
+		if (!empty($_POST['data']['game_circle']))
+		{
+			$this->Session->write('game_circle', $_POST['data']['game_circle']);
+		}
 	}
 	/**
 	 * create agent users or players users then save to session array..

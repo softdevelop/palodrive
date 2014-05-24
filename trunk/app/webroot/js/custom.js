@@ -9,6 +9,9 @@ var clocks = new Array();
 	clocks[7] = "2 hr";
 
 jQuery(document).ready(function($) {
+	/** HOANG ADD **/
+	$('select[class^=gc_ol_], select[class^=gc_rl_], select[class^=gc_rc_ol_], input[class^=gc_rc_rl_]').attr('disabled', 'disabled');
+	/** END HOANG ADD **/
 	$('input,textarea').focus(function(){
 	   $(this).data('placeholder',$(this).attr('placeholder'))
 	   $(this).attr('placeholder','');
@@ -133,71 +136,92 @@ function CheckAllSport(Element)
 		}
 	}
  }
- function selectOpenLineType(league, option)
- {
 
-	$("#game_circle_type_"+league).html(option);
-	if(option == "Normal")
-	{
-		$('.gc_ol_' + league).hide();
-		$('.gc_rl_' + league).hide();
-		$('.gc_nm_' + league).show();
-		$('.gc_rc_nm_' + league).show();
-		$('.gc_rc_rl_' + league).hide();
-		$('.gc_rc_ol_' + league).hide();
-	}
-	if(option == "Open Line")
-	{
-		$('.gc_nm_' + league).hide();
-		$('.gc_rl_' + league).hide();
-		$('.gc_ol_' + league).show();
-		$('.gc_rc_nm_' + league).hide();
-		$('.gc_rc_rl_' + league).hide();
-		$('.gc_rc_ol_' + league).show();
-	}
-	if(option == "Release Line")
-	{
-		$('.gc_nm_' + league).hide();
-		$('.gc_rl_' + league).show();
-		$('.gc_ol_' + league).hide();
-		$('.gc_rc_nm_' + league).hide();
-		$('.gc_rc_rl_' + league).show();
-		$('.gc_rc_ol_' + league).hide();
-	}
-	el = document.getElementsByTagName('span');
-	for (i=0; i<el.length; i++)
-	{
-		var obj_id = el[i].id;
-		if(obj_id.indexOf("gc_ol_" + league) == 0)
+ 	 function selectOpenLineType(league, option)
+	 {
+
+		$("#game_circle_type_"+league).html(option);
+		if(option == "Normal")
 		{
-			if(option == "Normal"){
-				$("#"+obj_id+"_ol").hide();
-				$("#"+obj_id+"_rl").hide();
-				$("#"+obj_id).show();
-				$("#"+obj_id+"_review").html("Normal");	
-				var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
-				$("#"+obj_id1+"_rc_review").html("off");	
-			}
-			if(option == "Open Line"){
-				$("#"+obj_id+"_ol").show();
-				$("#"+obj_id+"_rl").hide();
-				$("#"+obj_id).hide();
-				$("#"+obj_id+"_review").html("1:00 AM");
-				var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
-				$("#"+obj_id1+"_rc_review").html("15 Min");
-			}
-			if(option == "Release Line"){
-				$("#"+obj_id+"_ol").hide();
-				$("#"+obj_id+"_rl").show();
-				$("#"+obj_id).hide();
-				$("#"+obj_id+"_rl").prop('selectedIndex', 0);
-				$("#"+obj_id+"_review").html("15 Min");
-				var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
-				$("#"+obj_id1+"_rc_review").html("off");
-			}	
+			$('.gc_ol_' + league).hide();
+			$('.gc_rl_' + league).hide();
+			$('.gc_ol_' + league).attr('disabled', 'disabled');
+			$('.gc_rl_' + league).attr('disabled', 'disabled');
+			$('.gc_nm_' + league).show();
+			$('.gc_nm_' + league).removeAttr('disabled');
+			$('.gc_rc_nm_' + league).removeAttr('disabled');
+			$('.gc_rc_nm_' + league).show();
+			$('.gc_rc_rl_' + league).hide();
+			$('.gc_rc_ol_' + league).hide();
+			$('.gc_rc_rl_' + league).attr('disabled', 'disabled');
+			$('.gc_rc_ol_' + league).attr('disabled', 'disabled');
 		}
-	}
- }
+		if(option == "Open Line")
+		{
+			$('.gc_nm_' + league).hide();
+			$('.gc_rl_' + league).hide();
+			$('.gc_nm_' + league).attr('disabled', 'disabled');
+			$('.gc_rl_' + league).attr('disabled', 'disabled');
+			
+			$('.gc_ol_' + league).show();
+			$('.gc_ol_' + league).removeAttr('disabled');
+			$('.gc_rc_ol_' + league).removeAttr('disabled');
+			$('.gc_rc_nm_' + league).hide();
+			$('.gc_rc_rl_' + league).hide();
+			$('.gc_rc_ol_' + league).show();
+		}
+		if(option == "Release Line")
+		{
+			$('.gc_nm_' + league).attr('disabled', 'disabled');
+			$('.gc_ol_' + league).attr('disabled', 'disabled');
+
+			$('.gc_nm_' + league).hide();
+			$('.gc_rl_' + league).show();
+			$('.gc_ol_' + league).hide();
+
+			$('.gc_rl_' + league).removeAttr('disabled');
+			$('.gc_rc_rl' + league).removeAttr('disabled');
+
+			$('.gc_rc_nm_' + league).hide();
+			$('span.gc_rc_rl_' + league).show();
+			$('input.gc_rc_rl_' + league).hide();
+			$('.gc_rc_ol_' + league).hide();
+		}
+		el = document.getElementsByTagName('span');
+		for (i=0; i<el.length; i++)
+		{
+			var obj_id = el[i].id;
+			if(obj_id.indexOf("gc_ol_" + league) == 0)
+			{
+				if(option == "Normal"){
+					$("#"+obj_id+"_ol").hide();
+					$("#"+obj_id+"_rl").hide();
+					$("#"+obj_id).show();
+					$("#"+obj_id+"_review").html("Normal");	
+					var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
+					$("#"+obj_id1+"_rc_review").html("off");	
+				}
+				if(option == "Open Line"){
+					$("#"+obj_id+"_ol").show();
+					$("#"+obj_id+"_rl").hide();
+					$("#"+obj_id).hide();
+					$("#"+obj_id+"_review").html("1:00 AM");
+					var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
+					$("#"+obj_id1+"_rc_review").html("15 Min");
+				}
+				if(option == "Release Line"){
+					$("#"+obj_id+"_ol").hide();
+					$("#"+obj_id+"_rl").show();
+					$("#"+obj_id).hide();
+					$("#"+obj_id+"_rl").prop('selectedIndex', 0);
+					$("#"+obj_id+"_review").html("15 Min");
+					var obj_id1 = obj_id.replace("gc_ol_","gc_rc_");
+					$("#"+obj_id1+"_rc_review").html("off");
+				}	
+			}
+		}
+	 }
+
  function selectReleaseLine(obj, obj_id, target_id){
 	var idx = obj.selectedIndex;
 	$('#'+obj_id+' option').remove();
@@ -265,25 +289,16 @@ function CheckAllSport(Element)
 		}
 	}
  }
- function inputOvDefault(obj, val, sport){
-	if(sport==0)
-		el = obj.parentNode.getElementsByTagName('input');
-	else
-		el = obj.parentNode.parentNode.getElementsByTagName('input');
-	for (i=0; i<el.length; i++)
-	{
-	   if(sport==0){	
-		if(el[i].id.indexOf("gc_ov_") == 0 && el[i]!=obj)
-		{
-		  el[i].value = val;
-		}
-	   }else{
-		if(el[i].id.indexOf("gc_ov_"+sport+"_") == 0 && el[i]!=obj)
-		{
-		  el[i].value = val;
-		}
-	   }
-	}
+ function inputOvDefault(obj, val, sport)
+ {
+ 	if(sport == 0)
+ 	{
+ 		$('input[class^=ov_max_]').val(val).htm(val);
+ 	}
+ 	else
+ 	{
+ 		$('.ov_max_' + sport).val(val).htm(val);
+ 	}
  }
  function selectSportBook(obj){
 	var obj_id = obj.id;
