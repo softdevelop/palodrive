@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
 		  }
 		 
 		);
-		showBox();
+		//showBox();
 	$('input[type=checkbox]').click(function(){
 		showBox();
 	});	

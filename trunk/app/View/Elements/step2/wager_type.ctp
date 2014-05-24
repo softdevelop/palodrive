@@ -63,7 +63,7 @@
                                         {
                             ?>
                                             <td align="center">
-                                                <input value="1" type="checkbox" id="c_1_<?php echo $key1.'_'.$key2;?>" name="data[wager_type][<?php echo $tournament['Tournament']['id'];?>][<?php echo $wager_type_id;?>][<?php echo $key2;?>]" />
+                                                <input value="1" type="checkbox" id="c_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_type][<?php echo $tournament['Tournament']['id'];?>][<?php echo $wager_type_id;?>][<?php echo $key2;?>]" />
                                             </td> 
                             <?php
 
@@ -97,16 +97,16 @@
                     <tr>
                         <td class="header"><?php echo $park['HorsesPark']['name']?></td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][wps]" id="c_1000000_1_wps">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][wps]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_wps">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][exa]" id="c_1000000_1_exa">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][exa]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_exa">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][tri]" id="c_1000000_1_tri">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][tri]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_tri">
                         </td>
                         <td align="center">
-                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][sup]" id="c_1000000_1_sup">
+                            <input value="1" type="checkbox" name="data[wager_type][horses][<?php echo $park['HorsesPark']['id'];?>][sup]" id="c_1000000_<?php echo $park['HorsesPark']['id'] ;?>_sup">
                         </td>
                     </tr>
 
