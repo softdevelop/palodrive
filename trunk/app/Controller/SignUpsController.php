@@ -290,6 +290,14 @@ class SignUpsController extends AppController {
 				}
 			}
 		}
+
+
+		// save games circles informations to session array
+		
+		if (!empty($_POST['data']['game_circle']))
+		{
+			$this->Session->write('game_circle', $_POST['data']['game_circle']);
+		}
 		if (($_POST['data']['select_wager_limit'] == 1)){
 			if (!empty($_POST['data']['wager_limit'])){
 				if (!empty($_POST['data']['wager_limit']['all'])){
