@@ -45,7 +45,8 @@ class SignUpsController extends AppController {
 	public $uses = array(
 		'TournamentsDefaultDetail', 
 		'HorsesPark',
-		'DefaultGamesCircle'
+		'DefaultGamesCircle',
+		'User'
 		);
 
 	public $step;
@@ -122,9 +123,17 @@ class SignUpsController extends AppController {
 					break;
 				case '31':
 					$this->step = 'setup31';
+					$this->Session->write('step.active', 3);
 					$this->{$this->step}();
 					$this->render('setup31');
-					break;					
+					break;		
+				case '32':
+					$this->step = 'setup32';
+					$this->Session->write('step.active', 3);
+					$this->{$this->step}();
+					$this->render('setup32');
+					break;		
+
 				default:
 					# code...
 					break;
@@ -292,6 +301,15 @@ class SignUpsController extends AppController {
 		{
 			$this->Session->write('game_circle', $_POST['data']['game_circle']);
 		}
+
+
+		# save agent property options to db
+		if (!empty($_POST['data']['agent_properties']))
+		{
+			$this->Session->write('agent_properties', $_POST['data']['agent_properties']);
+		}
+
+		// save wager limits options to session array
 		if (($_POST['data']['select_wager_limit'] == 1)){
 			if (!empty($_POST['data']['wager_limit'])){
 				if (!empty($_POST['data']['wager_limit']['all'])){
@@ -349,8 +367,18 @@ class SignUpsController extends AppController {
 				}
 			}	
 		}
-		echo 'success';exit;
 	}
+
+	/** 
+	 * Transfer data from session to db
+	 */
+	
+	public function setup32()
+	{
+		echo "<pre>";
+		print_r($this->Session->read('users'));die('123');
+	}
+
 	/**
 	 * create agent users or players users then save to session array..
 	 * @return avoid
