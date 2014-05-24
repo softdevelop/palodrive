@@ -29,6 +29,7 @@
                         if (isset($tournament['TournamentsDefaultDetail'][0])) {
                             echo $this->WagerType->getHeader($tournament['TournamentsDefaultDetail'][0]);
                         }
+
                     ?>
                 </tr>
                 <?php foreach ( $tournament['TournamentsDefaultDetail'] as $key1 => $wagerLimit) :?>
@@ -294,7 +295,6 @@
 
                                      }
                                 }
-                            
 							endforeach;
                         ?>
 					</tr>
@@ -306,14 +306,11 @@
                             foreach ( $wagerLimit as $key2 => $value) :
                                 if ( $key2 != 'id' && $key2 != 'tournament_id' && $key2 != 'wager_type_id'){
                                     if ( $value == 1 ){
-
                                         if ( $key2 == 'teaser' || $key2 == 'future' || $key2 == 'prop'){
                         ?>              
                                             <td align="center">
                                                 <input  placeholder="Max Win" class="input" type="text" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
                                             </td>
-                                            
-
                         <?php           } else{  ?> 
                                             <td align="center">
                                                 <input value="off"  placeholder="Max Win" class="input" type="button" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
