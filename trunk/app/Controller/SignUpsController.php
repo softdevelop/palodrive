@@ -423,7 +423,6 @@ class SignUpsController extends AppController {
 	
 	public function setup32()
 	{
-		
 		// Save master infomations to db
 		
 		if ( $this->Session->check('users.master') && !$this->Session->check('users.master.id') )
@@ -462,6 +461,10 @@ class SignUpsController extends AppController {
 
 			}
 		}
+
+		// HN
+		
+		// by Khuong
 		
 	}
 
