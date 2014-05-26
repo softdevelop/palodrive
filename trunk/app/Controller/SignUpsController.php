@@ -46,7 +46,10 @@ class SignUpsController extends AppController {
 		'TournamentsDefaultDetail', 
 		'HorsesPark',
 		'DefaultGamesCircle',
-		'User'
+		'User',
+		'WagerTypeAttribute',
+		'HorsesWagerType',
+		'GameCircle'
 		);
 
 	public $step;
@@ -307,6 +310,7 @@ class SignUpsController extends AppController {
 					}
 				}
 			}
+			
 		}
 
 
@@ -327,25 +331,37 @@ class SignUpsController extends AppController {
 		// save games limit informations to session array
 		if (($_POST['data']['select_wager_limit'] == 1)){
 
-			if (!empty($_POST['data']['wager_limit'])){
-				if (!empty($_POST['data']['wager_limit']['all'])){
-					if (!empty($_POST['data']['wager_limit']['all']['limit'])){
+			if (!empty($_POST['data']['wager_limit']))
+			{
+				if (!empty($_POST['data']['wager_limit']['all']))
+				{
+					if (!empty($_POST['data']['wager_limit']['all']['limit']))
+					{
 
-						foreach ($_POST['data']['wager_limit']['all']['limit'] as $tournament_id => $tournament) {
-							foreach ($tournament as $wager_limit_id => $wager_limit) {
-								if(!empty($wager_limit)){
-									foreach ($wager_limit as $key => $value){
+						foreach ($_POST['data']['wager_limit']['all']['limit'] as $tournament_id => $tournament) 
+						{
+							foreach ($tournament as $wager_limit_id => $wager_limit) 
+							{
+								if(!empty($wager_limit))
+								{
+									foreach ($wager_limit as $key => $value)
+									{
 										$this->Session->write('wager_limit.all.limit.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
 									}
 								}
 							}
 						}
 					}
-					if (!empty($_POST['data']['wager_limit']['all'])){
-						foreach ($_POST['data']['wager_limit']['all']['max-win'] as $tournament_id => $tournament) {
-							foreach ($tournament as $wager_limit_id => $wager_limit) {
-								if(!empty($wager_limit)){
-									foreach ($wager_limit as $key => $value){
+					if (!empty($_POST['data']['wager_limit']['all']))
+					{
+						foreach ($_POST['data']['wager_limit']['all']['max-win'] as $tournament_id => $tournament) 
+						{
+							foreach ($tournament as $wager_limit_id => $wager_limit) 
+							{
+								if(!empty($wager_limit))
+								{
+									foreach ($wager_limit as $key => $value)
+									{
 										$this->Session->write('wager_limit.all.max-win.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
 									}
 								}
@@ -354,26 +370,41 @@ class SignUpsController extends AppController {
 					}
 				}
 			}
-		}elseif(($_POST['data']['select_wager_limit'] == 2)){
-			if (!empty($_POST['data']['wager_limit'])){
-				if (!empty($_POST['data']['wager_limit']['each_agent'])){
-					foreach ($_POST['data']['wager_limit']['each_agent'] as $keyagent => $agent){
-						if (!empty($agent['limit'])){
-							foreach ($agent['limit'] as $tournament_id => $tournament) {
-								foreach ($tournament as $wager_limit_id => $wager_limit) {
-									if(!empty($wager_limit)){
-										foreach ($wager_limit as $key => $value){
+		}
+		elseif (( $_POST['data']['select_wager_limit'] == 2 ))
+		{
+			if ( !empty($_POST['data']['wager_limit'] ))
+			{
+				if ( !empty($_POST['data']['wager_limit']['each_agent'] )) 
+				{
+					foreach ( $_POST['data']['wager_limit']['each_agent'] as $keyagent => $agent )
+					{
+						if ( !empty($agent['limit'] ))
+						{
+							foreach ( $agent['limit'] as $tournament_id => $tournament ) 
+							{
+								foreach ( $tournament as $wager_limit_id => $wager_limit ) 
+								{
+									if ( !empty( $wager_limit ) )
+									{
+										foreach ( $wager_limit as $key => $value )
+										{
 											$this->Session->write('wager_limit.each_agent.'.$keyagent.'.limit.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
 										}
 									}
 								}
 							}
 						}
-						if (!empty($agent['max-win'])){
-							foreach ($agent['max-win'] as $tournament_id => $tournament) {
-								foreach ($tournament as $wager_limit_id => $wager_limit) {
-									if(!empty($wager_limit)){
-										foreach ($wager_limit as $key => $value){
+						if (!empty($agent['max-win']))
+						{
+							foreach ( $agent['max-win'] as $tournament_id => $tournament ) 
+							{
+								foreach ( $tournament as $wager_limit_id => $wager_limit ) 
+								{
+									if( !empty($wager_limit ))
+									{
+										foreach ( $wager_limit as $key => $value )
+										{
 											$this->Session->write('wager_limit.each_agent.'.$keyagent.'.max-win.' . $tournament_id . '.' . $wager_limit_id . '.' . $key, $value);
 										}
 									}
@@ -394,17 +425,100 @@ class SignUpsController extends AppController {
 	{
 		// Save master infomations to db
 		
-		if ($this->Session->check('users.master') && !$this->Session->check('users.master.id'))
+		if ( $this->Session->check('users.master') && !$this->Session->check('users.master.id') )
 			$this->saveMaster();
 		else
-			throw new Exception("Master Session not existing or master informations was saved to the database", 1);
+			throw new Exception( "Master Session not existing or master informations was saved to the database", 1 );
 
-
-		if ($this->Session->check('users.agent'))
+		// save agents infors
+		if ( $this->Session->check( 'users.agent' ) )
 		{
-			$this->saveAgents($this->Session->read('users.agent'));
+			$this->saveAgents( $this->Session->read( 'users.agent' ) );
 		}
 
+		// save wager types
+		if ( $this->Session->check('wager_type') )
+		{
+			$wager_types = $this->Session->read('wager_type');
+			foreach ( $wager_types as $key => $wager_type ) 
+			{
+				if ( $key != 'horses' )			
+					$this->saveWType( $wager_type, $key );
+				else
+					$this->saveWTypeHorses( $wager_type );
+			}
+		}
+
+
+		// save game circle
+		var_dump($this->Session->read('game_circle')); die('123');
+		if ( $this->Session->check('game_circle') )
+		{
+			$game_circles = $this->Session->read('game_circle');
+			foreach ( $game_circles as $key => $games_circle ) 
+			{
+				$this->saveGCircle( $games_circle, $key );
+
+			}
+		}
+		
+	}
+
+	/**
+	 * Save games circle options to db
+	 */
+	public function saveGCircle( $data = array(), $tournament_id = 0 )
+	{
+		$dataGCircle = array();
+		foreach ( $data as $key => $value )
+		{
+			$dataGCircle = $value;
+			$dataTmp = array_merge( $dataGCircle, array(
+						'tournament_id' => $tournament_id,
+						'user_id' => $this->Session->read('users.master.id'),
+						'limitions_type_id' => $key
+			));
+
+			$this->GameCircle->create();
+			$this->GameCircle->save( $dataGCircle );
+
+		}
+
+
+	}
+
+	/**
+	 * save normal wager type to db
+	 */
+	public function saveWType( $wagerType = array(), $tournament_id = 0 )
+	{
+		foreach ($wagerType as $key => $value) 
+		{
+			$valueTmp = array_merge($value, array(
+					'wager_type_id' => $key,
+					'user_id'       => $this->Session->read('users.master.id'),
+					'tournament_id' => $tournament_id
+				));
+			$this->WagerTypeAttribute->create();
+			$this->WagerTypeAttribute->save($valueTmp);
+		}
+		
+	}
+
+	/**
+	 * save horses types to the db
+	 */
+	public function saveWTypeHorses($wagerType = array())
+	{
+		foreach ($wagerType as $key => $value) 
+		{
+			$valueTmp = array_merge($value, array(
+					'horses_park_id' => $key,
+					'user_id'       => $this->Session->read('users.master.id'),
+				));
+			$this->HorsesWagerType->create();
+			$this->HorsesWagerType->save($valueTmp);
+		}
 		
 	}
 
@@ -481,7 +595,7 @@ class SignUpsController extends AppController {
 
 		$this->User->save($dataMaster);
 		$this->Session->write('users.master.id', $this->User->id);
-
+		
 		// Save players of master
 		if ($this->Session->check('users.master.player'))
 		{
@@ -503,7 +617,6 @@ class SignUpsController extends AppController {
 		$dataPlayer = array();
 		foreach ($data as $key => $player) 
 		{
-			# code...
 			$info = array(
 					'user_name' => $player['user_name'],
 					'handle_name' => $player['handle_name'],
