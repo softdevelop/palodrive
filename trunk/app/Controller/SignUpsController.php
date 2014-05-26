@@ -390,10 +390,132 @@ class SignUpsController extends AppController {
 	
 	public function setup32()
 	{
-		echo "<pre>";
-		print_r($this->Session->read('users'));die('123');
+		// Save master infomations to db
+		
+		if ($this->Session->check('users.master') && !$this->Session->check('users.master.id'))
+			$this->saveMaster();
+		else
+			throw new Exception("Master Session not existing or master informations was saved to the database", 1);
+
+
+		if ($this->Session->check('users.agent'))
+		{
+			$this->saveAgents($this->Session->read('users.agent'));
+		}
+
+		
 	}
 
+	/** 
+	 * Save agents and subagent's players to users table..
+	 */
+	public function saveAgents($data = array())
+	{
+		if (!empty($data))
+		{
+			foreach ($data as $key => $agent) 
+			{
+				$this->User->create();
+				$dataAgent = array(
+						'user_name' => $agent['user_name'],
+						'handle_name' => $agent['handle_name'],
+						'password' => $this->User->hash($agent['password'], 'sha1', true),
+						'type' => 2,
+						'created_date' => time(),
+						'parent_id' => $this->Session->read('users.master.id')
+					);
+
+				$this->User->save($dataAgent);
+				$this->Session->write('users.agent.' . $key . 'id', $this->User->id);
+
+				// Save players of each agent
+				if (!empty($agent['player']))
+				{
+					$this->_savePlayer($agent['player'], $this->Session->read('users.agent.' . $key . 'id'));
+				}
+
+				// save subagent and players
+				if (!empty($agent['subagent']))
+				{
+					foreach ($agent['subagent'] as $keySub => $subAgent) 
+					{
+						$this->User->create();
+						$dataSubAgent = array(
+								'user_name' => $subAgent['user_name'],
+								'handle_name' => $subAgent['handle_name'],
+								'password' => $this->User->hash($subAgent['password'], 'sha1', true),
+								'type' => 3,
+								'created_date' => time(),
+								'parent_id' => $this->Session->read('users.agent.' . $key . 'id')
+							);
+
+						$this->User->save($dataSubAgent);
+						$this->Session->write('users.agent.subagent' . $keySub . 'id', $this->User->id);
+						
+						// Save player of subagent
+						if (!empty($subAgent['player']))
+						{
+							$this->_savePlayer($subAgent['player'], $this->Session->read('users.agent.subagent' . $keySub . 'id'));
+						}
+					}
+					
+				}
+			}
+		}
+	}
+	/** 
+	 * Save master and master's players to users table..
+	 */
+	public function saveMaster()
+	{
+		$this->User->create();
+		$dataMaster = array(
+				'user_name' => $this->Session->read('users.master.user_name'),
+				'handle_name' => $this->Session->read('users.master.handle_name'),
+				'password' => $this->User->hash($this->Session->read('users.master.password'), 'sha1', true),
+				'created_date' => time(),
+				'type' => 1,
+			);
+
+		$this->User->save($dataMaster);
+		$this->Session->write('users.master.id', $this->User->id);
+
+		// Save players of master
+		if ($this->Session->check('users.master.player'))
+		{
+			$players = $this->Session->read('users.master.player');
+
+			$this->_savePlayer($players, $this->Session->read('users.master.id'));
+			
+		}
+
+	}
+
+	/**
+	 * save list player
+	 * @param  array  $data container players informations
+	 * @param  int $parent_id is parent of specify player
+	 */
+	private function _savePlayer($data = array(), $parent_id = NULL)
+	{
+		$dataPlayer = array();
+		foreach ($data as $key => $player) 
+		{
+			# code...
+			$info = array(
+					'user_name' => $player['user_name'],
+					'handle_name' => $player['handle_name'],
+					'password' => $this->User->hash($player['password'], 'sha1', true),
+					'created_date' => time(),
+					'type' => 4,
+					'parent_id' => $parent_id
+				);
+
+			array_push($dataPlayer, $info);
+		}
+		
+		$this->User->saveMany($dataPlayer);
+	}
 	/**
 	 * create agent users or players users then save to session array..
 	 * @return avoid
