@@ -155,9 +155,6 @@ function CheckAllSport(Element)
 			$('.gc_rc_ol_' + league).hide();
 			$('.gc_rc_rl_' + league).attr('disabled', 'disabled');
 			$('.gc_rc_ol_' + league).attr('disabled', 'disabled');
-			// K add for display profile view 
-			$('.type_' + league).html('Normal');
-			$('.release_' + league).html('off');
 		}
 		if(option == "Open Line")
 		{
@@ -172,9 +169,6 @@ function CheckAllSport(Element)
 			$('.gc_rc_nm_' + league).hide();
 			$('.gc_rc_rl_' + league).hide();
 			$('.gc_rc_ol_' + league).show();
-			// K add for display profile view 
-			$('.type_' + league).html('1:00 AM');
-			$('.release_' + league).html('15 Min');
 		}
 		if(option == "Release Line")
 		{
@@ -192,9 +186,6 @@ function CheckAllSport(Element)
 			$('span.gc_rc_rl_' + league).show();
 			$('input.gc_rc_rl_' + league).hide();
 			$('.gc_rc_ol_' + league).hide();
-			// K add for display profile view 
-			$('.type_' + league).html('15 Min');
-			$('.release_' + league).html('off');
 		}
 		el = document.getElementsByTagName('span');
 		for (i=0; i<el.length; i++)
