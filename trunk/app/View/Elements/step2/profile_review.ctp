@@ -104,7 +104,6 @@
                                     }
                                 }
                         ?>
-                       
                         <?php endforeach;?>
                     </tr>
                 <?php endforeach;?>
@@ -167,5 +166,38 @@
         <?php
             endforeach;
         ?>
+        <p><strong>Horses</strong></p>
+        <table width="100%" border="0" cellspacing="1" cellpadding="0" class="player_limit">
+            <tbody>
+                <tr>
+                    <td class="header"><strong>Horses</strong></td>
+                    <td class="header">WSP</td>
+                    <td class="header">Exacta</td>
+                    <td class="header">Trifecta</td>
+                    <td class="header">Superfecta</td>
+                </tr>
+                <?php 
+                    foreach ($horsesparks as $key => $park) :
+                ?>
+                <tr>
+                    <td class="header" nowrap=""><?php echo $park['HorsesPark']['name']?></td>
+                    <td id="ir_<?php echo $park['HorsesPark']['id'] ;?>_wps_review">    
+                        
+                    </td>
+                    <td id="ir_<?php echo $park['HorsesPark']['id'] ;?>_exa_review">
+                        
+                    </td>
+                    <td id="ir_<?php echo $park['HorsesPark']['id'] ;?>_tri_review">
+                        
+                    </td>
+                    <td id="ir_<?php echo $park['HorsesPark']['id'] ;?>_sup_review">
+                        
+                    </td>
+                </tr>
+                <?php 
+                    endforeach;
+                ?>
+            </tbody>
+        </table>
     </div>
 </div>
