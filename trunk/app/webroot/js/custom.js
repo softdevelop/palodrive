@@ -102,40 +102,7 @@ function CheckAllSport(Element)
 	}
 	showBox();
  }
- function showBox(){
-	el = document.getElementsByTagName('input');
-	//console.log(el);
-	for (i=0; i<el.length; i++)
-	{
-		
-		var obj_id = el[i].id;
-		//console.log(el[i].id);
-		//if(i == 1) console.log(el[i].id);
-		if(obj_id.indexOf("c_") == 0)
-		{
-			var mr_id = obj_id.replace('c_','ir_');
-			var mw_id = obj_id.replace('c_','iw_');
-			if(el[i].checked){
-				
-				$("#"+mr_id).show();
-				$("#"+mw_id).show();
-				$("#"+mr_id+"_SADSD").show();
-				$("#"+mw_id+"_SADSD").show();
-				$("#"+mr_id+"_SADSD").show();
-				$("#"+mw_id+"_SADSD").show();
-				$("#"+mr_id+"_SADSD-A1").show();
-				$("#"+mw_id+"_SADSD-A1").show();
-							}else{
-				$("#"+mr_id).hide();
-				$("#"+mw_id).hide();
-				$("#"+mr_id+"_SADSD").hide();
-				$("#"+mw_id+"_SADSD").hide();
-				$("#"+mr_id+"_SADSD-A1").hide();
-				$("#"+mw_id+"_SADSD-A1").hide();
-							}
-		}
-	}
- }
+ 
 
  	 function selectOpenLineType(league, option)
 	 {
