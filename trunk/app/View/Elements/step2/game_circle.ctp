@@ -29,7 +29,7 @@
 
                         ?>
                                     <td>
-                                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" class="ov_max_<?php echo $circle['DefaultGamesCircle']['tournament_id'] ?>" type="text" style="width:50px;" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][1][<?php echo $key1 ?>]">
+                                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" class="ov_max_<?php echo $circle['DefaultGamesCircle']['tournament_id'] ?>" type="text" style="width:50px;" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][1][<?php echo $key1 ?>]" id="gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_1_<?php echo $key1 ?>">
                                     </td>
                         <?php
                                  }
@@ -39,7 +39,7 @@
                         
                     </tr>
                     <tr>
-                        <td class="header" width="120px;">
+                        <td class="header" width="120px;" >
                             <select onchange="selectOpenLineType(<?php echo $i;?>, this.value);">
                                 <option>Normal</option>
                                 <option>Open Line</option>
@@ -57,7 +57,7 @@
                                         <span id="gc_ol_<?php echo $i;?>_PS_Game" class="gc_nm_<?php echo $i?>">Normal
                                             <input class="gc_nm_<?php echo $i?>" type="hidden" value="0" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][4][<?php echo $key1 ?>]" />
                                         </span>
-                                        <select onchange="" id="gc_ol_<?php echo $i;?>_PS_Game_ol" style="display:none;" class="gc_ol_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][5][<?php echo $key1 ?>]">
+                                        <select onchange="selectReleaseCircle(this)" style="display:none;" class="gc_ol_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][5][<?php echo $key1 ?>]" id="gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_5_<?php echo $key1 ?>">
                                             <option value="1">1:00 AM</option>
                                             <option value="2">2:00 AM</option>
                                             <option value="3">3:00 AM</option>
@@ -83,7 +83,7 @@
                                             <option value="23">11:00 PM</option>
                                             <option value="24">12:00 PM</option>
                                         </select>
-                                        <select onchange="selectReleaseLine(this,'gc_rc_<?php echo $i;?>_PS_Game_rc','gc_ol_<?php echo $i;?>_PS_Game_review')" id="gc_ol_<?php echo $i;?>_PS_Game_rl" style="display:none;" class="gc_rl_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][6][<?php echo $key1 ?>]">
+                                        <select onchange="selectReleaseCircle(this)" style="display:none;" class="gc_rl_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][6][<?php echo $key1 ?>]" id="addition_gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_5_<?php echo $key1 ?>">
                                             <option value="15">15 Min</option>
                                             <option value="30">30 Min</option>
                                             <option value="45">45 Min</option>
@@ -112,7 +112,7 @@
                         ?>
                                     <td>
                                         <span id="gc_cmw_1_PS_Game" style="display:none">NA</span>
-                                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" class="input" type="text" style="width:50px;" id="gc_cmw_1_PS_Game_cmw" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][2][<?php echo $key1 ?>]">
+                                        <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this)" class="input" type="text" style="width:50px;" id="gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_2_<?php echo $key1 ?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][2][<?php echo $key1 ?>]">
                                     </td>
                         <?php
                                 }
@@ -134,7 +134,7 @@
                                             off
                                             <input class="gc_rc_rl_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][3][<?php echo $key1 ?>]">
                                         </span>
-                                        <select onchange="selectReleaseCircle(this)" id="gc_rc_1_PS_Game_rc" class="gc_rc_nm_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][3][<?php echo $key1 ?>]">
+                                        <select onchange="selectReleaseCircle(this)" id="gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_3_<?php echo $key1 ?>" class="gc_rc_nm_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][3][<?php echo $key1 ?>]">
                                             <option value="0">off</option>
                                             <option value="120">2 hr</option>
                                             <option value="105">1:45</option>
@@ -145,7 +145,7 @@
                                             <option value="30">30 min</option>
                                             <option value="15">15 min</option>
                                         </select>
-                                        <select onchange="selectReleaseCircle(this)" id="gc_rc_2_PS_Game_rc" style="display: none;" class="gc_rc_ol_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][3][<?php echo $key1 ?>]">
+                                        <select onchange="selectReleaseCircle(this)" id="addition_gc_<?php echo $circle['DefaultGamesCircle']['tournament_id']?>_3_<?php echo $key1 ?>" style="display: none;" class="gc_rc_ol_<?php echo $i;?>" name="data[game_circle][<?php echo $circle['DefaultGamesCircle']['tournament_id']?>][3][<?php echo $key1 ?>]">
                                             <option value="15">15 Min</option>
                                             <option value="30">30 Min</option>
                                             <option value="45">45 Min</option>

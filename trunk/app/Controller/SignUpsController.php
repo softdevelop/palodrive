@@ -65,7 +65,9 @@ class SignUpsController extends AppController {
  */
 	
 	public function test() {
-		$tournaments = $this->Session->read('wager_limit.each_agent.TRAN.limit.hourse');
+		//$tournaments =$this->TournamentsDefaultDetail->getAllTour();
+		$tournaments =	$this->DefaultGamesCircle->getAll();
+		//$tournaments = $this->Session->read('wager_limit.each_agent.TRAN.limit.hourse');
 		echo "<pre>";
 		var_dump($tournaments);
 		exit();

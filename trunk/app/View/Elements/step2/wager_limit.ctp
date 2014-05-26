@@ -282,7 +282,7 @@
                                     if ( $value == 1 ){
                         ?>
                                         <td align="center">
-                                            <input  placeholder="Limit" class="input" type="text" id="ir_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][limit][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]"  style="width:50px;display:none;">
+                                            <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this, this.value)"  placeholder="Limit" class="input" type="text" id="ir_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][limit][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]"  style="width:50px;display:none;">
                                         </td>
                         <?php
                                     }
@@ -309,11 +309,11 @@
                                         if ( $key2 == 'teaser' || $key2 == 'future' || $key2 == 'prop'){
                         ?>              
                                             <td align="center">
-                                                <input  placeholder="Max Win" class="input" type="text" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
+                                                <input onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this, this.value)"  placeholder="Max Win" class="input" type="text" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
                                             </td>
                         <?php           } else{  ?> 
                                             <td align="center">
-                                                <input value="off"  placeholder="Max Win" class="input" type="button" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
+                                                <input value="off" onchange="javascript:inputPlayerLimit(this, this.value)" onkeyup="javascript:inputPlayerLimit(this, this.value)" placeholder="Max Win" class="input" type="button" id="iw_1_<?php echo $tournament['Tournament']['id'].'_'.$key1.'_'.$key2;?>" name="data[wager_limit][all][max-win][<?php echo $tournament['Tournament']['id']?>][<?php echo $key1;?>][<?php echo $key2;?>]" style="width:50px;display:none;">
                                             </td>
                         <?php          }
                                     }
