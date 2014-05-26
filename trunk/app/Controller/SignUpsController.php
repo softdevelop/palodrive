@@ -49,7 +49,8 @@ class SignUpsController extends AppController {
 		'User',
 		'WagerTypeAttribute',
 		'HorsesWagerType',
-		'GameCircle'
+		'GameCircle',
+		'AgentProperty'
 		);
 
 	public $step;
@@ -83,23 +84,17 @@ class SignUpsController extends AppController {
 	public function index() 
 	{
 		$this->layout = 'signup';
-		if(!$this->Session->check('step.active'))
-		{
-			$this->Session->write('step.active', 1);
-			$this->set('active', 1);
-		}
-		else
-		{
-			$this->set('active', $this->Session->read('step.active'));
-		}
 			
 		if(!isset($_POST['step']))
 		{
 			// When user reload page signup we will remove all first session and entry info from scratch
 			$this->Session->destroy();
+			$this->Session->write('step.active', 1);
+			$this->Session->write('sidebar', 'sidebar1');
 		}
 		else
 		{
+
 			switch ($_POST['step']) {
 				case '12':
 					$this->Session->write('step.active', 1);
@@ -113,12 +108,14 @@ class SignUpsController extends AppController {
 					break;
 				case '14':
 					$this->step = 'setup14';
+					$this->Session->write('sidebar', 'sidebar2');
 					$this->Session->write('step.active', 2);
 					$this->render('setup14');
 					break;
 
 				case '21':
 					$this->step = 'setup21';
+					$this->Session->write('sidebar', 'sidebar3');
 					$this->{$this->step}();
 					$this->render('setup21');
 					break;
@@ -136,18 +133,18 @@ class SignUpsController extends AppController {
 					break;
 				case '24':
 					$this->step = 'setup24';
+					$this->Session->write('sidebar', 'sidebar4');
 					$this->{$this->step}();
 					$this->render('setup24');
 					break;
 				case '31':
 					$this->step = 'setup31';
-					$this->Session->write('step.active', 3);
 					$this->{$this->step}();
+					$this->Session->write('step.active', 3);
 					$this->render('setup31');
 					break;		
 				case '32':
 					$this->step = 'setup32';
-					$this->Session->write('step.active', 3);
 					$this->{$this->step}();
 					$this->render('setup32');
 					break;		
@@ -156,6 +153,7 @@ class SignUpsController extends AppController {
 					# code...
 					break;
 			}
+			
 		}
 	}
 
@@ -461,7 +459,17 @@ class SignUpsController extends AppController {
 		}
 
 		// HN
-		
+		// save agents properties to db
+		if ( $this->Session->check('agent_properties') )
+		{
+			$agent_properties = $this->Session->read('agent_properties');
+			$this->AgentProperty->create();
+			$data = array_merge( $agent_properties, array(
+						'user_id' => $this->Session->read('users.master.id')
+				));
+			$this->AgentProperty->save($data);
+		}
+
 		// by Khuong
 		
 	}

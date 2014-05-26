@@ -34,10 +34,11 @@
 <div id="body">
 	<div class="mbody">
 		<ul class="procbar">
+			<?php $active = $this->Session->read('step.active'); $sidebar = $this->Session->read('sidebar');?>
 		  <li><a  <?php if($active == 1) : ?> class="active" <?php endif;?> href="#">1. Setup master</a></li>
 		  <li><a <?php if($active == 2) :?> class="active" <?php endif;?>  href="#">2. Setup Client</a></li>
-		  <li><a href="#">3. Confirmation</a></li>
-		  <li><a href="#">4. Finish</a></li>
+		  <li><a <?php if($active == 3) : ?> class="active" <?php endif;?>  href="#">3. Confirmation</a></li>
+		  <li><a <?php if($active == 4) : ?> class="active" <?php endif;?>  href="#">4. Finish</a></li>
 		</ul>
 		<div class="content">
 			<div class="cleft">
@@ -46,14 +47,7 @@
 			<div class="cright">
 			 	<img src="img/icon_des.png"/><h3 class="title">Descriptions</h3>
 			    <div class="gray_panel">
-					<p>
-					    The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account. The most versatile organization where there is the option to add players underneath agents or attach directly to the master account.
-					<br/><br/>
-					    The most versatile organization where there is the option to add
-					</p>
-					<div class="but">
-					
-					</div>
+					<?php echo $this->element('sidebar/' . $sidebar);?>
 				</div>	
 			</div>
 		</div>
