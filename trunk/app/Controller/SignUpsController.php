@@ -423,6 +423,7 @@ class SignUpsController extends AppController {
 	
 	public function setup32()
 	{
+		var_dump($_POST['data']['agent_properties']);die('1111111');
 		// Save master infomations to db
 		
 		if ( $this->Session->check('users.master') && !$this->Session->check('users.master.id') )
@@ -449,9 +450,7 @@ class SignUpsController extends AppController {
 			}
 		}
 
-
 		// save game circle
-		var_dump($this->Session->read('game_circle')); die('123');
 		if ( $this->Session->check('game_circle') )
 		{
 			$game_circles = $this->Session->read('game_circle');
@@ -469,18 +468,16 @@ class SignUpsController extends AppController {
 	 */
 	public function saveGCircle( $data = array(), $tournament_id = 0 )
 	{
-		$dataGCircle = array();
 		foreach ( $data as $key => $value )
 		{
-			$dataGCircle = $value;
-			$dataTmp = array_merge( $dataGCircle, array(
+			$dataTmp = array_merge( $value, array(
 						'tournament_id' => $tournament_id,
 						'user_id' => $this->Session->read('users.master.id'),
 						'limitions_type_id' => $key
 			));
 
 			$this->GameCircle->create();
-			$this->GameCircle->save( $dataGCircle );
+			$this->GameCircle->save( $dataTmp );
 
 		}
 
