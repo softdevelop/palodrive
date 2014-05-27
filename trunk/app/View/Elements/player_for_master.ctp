@@ -24,16 +24,20 @@
 			</tr>
 			<?php 
 				$playerForMaster = $this->Session->read('users.master.player');
-				foreach ($playerForMaster as $key => $player) {
+				if ( isset( $playerForMaster ) )
+				{
+					foreach ($playerForMaster as $key => $player) 
+					{
 			?>
-				<tr>
-					<td><?php echo $player['handle_name'];?></td>
-					<td><?php echo $player['user_name'];?></td>
-					<td><?php echo $player['password'];?></td>
-					<td>Player</td>
-				</tr>
+					<tr>
+						<td><?php echo $player['handle_name'];?></td>
+						<td><?php echo $player['user_name'];?></td>
+						<td><?php echo $player['password'];?></td>
+						<td>Player</td>
+					</tr>
 			<?php 
-				} 
+					} 
+				}
 			?>
 			
 		</tbody>

@@ -50,7 +50,7 @@ class SignUpsController extends AppController {
 		'WagerTypeAttribute',
 		'HorsesWagerType',
 		'GameCircle',
-		'AgentProperty'
+		'AgentProperty',
 		'WagerLimitHorse',
 		'WagerLimit'
 		);
