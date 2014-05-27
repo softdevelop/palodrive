@@ -58,37 +58,6 @@ class SignUpsController extends AppController {
 	public $step;
 
 	public $active;
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- * @throws NotFoundException When the view file could not be found
- *	or MissingViewException in debug mode.
- */
-	
-	public function test() {
-		/*$agent = $this->User->find('first', array(
-					        'conditions' => array(
-					        	'User.handle_name' => 'TRAN-A1',
-					        	'User.parent_id' => 303
-					        )
-					    ));
-		echo '<pre>';
-		var_dump($agent['User']['id']);exit();
-		*/
-		$tournaments =  $this->Session->read('wager_limit.all.max-win');
-		echo "<pre>";
-		var_dump($tournaments);
-		exit();
-
-		$this->set('horsesparks', $this->HorsesPark->getParks());
-		$this->set('gamescircle', $this->DefaultGamesCircle->getAll());
-		$hourse = $this->HorsesPark->getParks();
-		echo "<pre>";
-		var_dump($hourse);
-		exit();
-	}
 
 	public function index() 
 	{
@@ -830,6 +799,5 @@ class SignUpsController extends AppController {
 	{
 		$this->render('setup_master12');
 	}
-
 	
 }
